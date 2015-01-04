@@ -8,24 +8,24 @@ library(RColorBrewer)
 #pie(1:7,brewer.pal(7, "Dark2"), col=mypalette)
 #brewer.pal(7, "Dark2")
 # "#1B9E77" "#D95F02" "#7570B3" "#E7298A" "#66A61E" "#E6AB02" "#A6761D"
-# türkis,   orange,   lila,     pink,     grün,     gelb,     ocker
+# tuerkis,   orange,   lila,     pink,     gruen,     gelb,     ocker
 
 par(mfrow=c(3,2))
 
 heike_palette_7 = c("#04A5CA", "#BF5300", "#7570B3", "#BB417F", "#66A61E", "#E6AB02", "#265298")
-# türkis,   orange,   lila,     pink,     grün,     gelb,     dunkelblau
+# tuerkis,   orange,   lila,     pink,     gruen,     gelb,     dunkelblau
 pie(rep(1,7),c("#04A5CA", "#BF5300", "#7570B3", "#BB417F", "#66A61E", "#E6AB02", "#265298"), col=heike_palette_7, main="7 colors")
 
 heike_palette_6 = c("#04A5CA", "#BF5300", "#7570B3", "#BB417F", "#66A61E", "#E6AB02")
-# türkis,   orange,   lila,     pink,     grün,     gelb
+# tuerkis,   orange,   lila,     pink,     gruen,     gelb
 #pie(rep(1,6),c("#04A5CA", "#BF5300", "#7570B3", "#BB417F", "#66A61E", "#E6AB02"), col=heike_palette_6)
 
 heike_palette_5 = c("#04A5CA", "#BF5300", "#7570B3", "#BB417F", "#66A61E")
-# türkis,   orange,   lila,     pink,     grün
+# tuerkis,   orange,   lila,     pink,     gruen
 #pie(rep(1,5),c("#04A5CA", "#BF5300", "#7570B3", "#BB417F", "#66A61E"), col=heike_palette_5)
 
 heike_palette_4 = c("#04A5CA", "#BF5300", "#7570B3", "#BB417F")
-# türkis,   orange,   lila,     pink
+# tuerkis,   orange,   lila,     pink
 #pie(rep(1,4),c("#04A5CA", "#BF5300", "#7570B3", "#BB417F"), col=heike_palette_4)
 
 heike_palette_2 = c("#BF5300", "#265298")
@@ -36,7 +36,7 @@ cols_treatment <- c("#4F81BD", "#B94441") # e.g. control / stress
 pie(rep(1,2), cols_treatment, col=cols_treatment, main="cols_treatment")
 
 cols_sample_time2 <- c("#66A61E", "#7570B3") # 2 time points
-#                       grün        lila
+#                       gruen        lila
 pie(rep(1,2), cols_sample_time2, col=cols_sample_time2, main="cols_sample_time")
 
 cols_sample_time <- c("#74A0D4", "#155096", "#E27572","#6B0705") # 4 time points
