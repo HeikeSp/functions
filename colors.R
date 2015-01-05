@@ -77,5 +77,4 @@ func_convert_color_name_to_hex("darkblue")
 func_convert_color_name_to_hex("deeppink4")
 #8B0A50 --> hell: #BA3E82
 
-
 cols_treatment_tolerance <- brewer.pal(4, "Paired")
