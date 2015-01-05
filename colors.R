@@ -4,6 +4,7 @@
 ##############
 
 library(RColorBrewer)
+
 #mypalette = palette( brewer.pal(7, "Dark2"))
 #pie(1:7,brewer.pal(7, "Dark2"), col=mypalette)
 #brewer.pal(7, "Dark2")
