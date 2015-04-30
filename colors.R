@@ -79,3 +79,17 @@ func_convert_color_name_to_hex("deeppink4")
 #8B0A50 --> hell: #BA3E82
 
 cols_treatment_tolerance <- brewer.pal(4, "Paired")
+
+display.brewer.pal(n = 6, name = "Greens")
+display.brewer.pal(n = 6, name = "Oranges")
+
+cols_trial <- c (brewer.pal(n = 6, name = "Greens")[4:6], brewer.pal(n = 6, name = "Oranges")[4:6])
+pie(rep(1,6), cols_trial, col=cols_trial, main="cols_trial")
+# Greens: "#74C476" "#31A354" "#006D2C" --> for field
+# Oranges: "#FD8D3C" "#E6550D" "#A63603" --> for greenhouse
+# cols_trial <- c("#74C476", "#FD8D3C", "#E6550D", "#A63603", "#31A354", "#006D2C")
+
+
+cols_treatment_report <- c("#558ED5", "#77933C") # control/stress
+cols_genotype_report <- c("grey", "#BF5300", "#5778B9", "#00756D", "#F7B944") # control/stress
+# grey  orange      blau      tuerkis    gelb
