@@ -89,7 +89,7 @@ pie(rep(1,6), cols_trial, col=cols_trial, main="cols_trial")
 # Oranges: "#FD8D3C" "#E6550D" "#A63603" --> for greenhouse
 # cols_trial <- c("#74C476", "#FD8D3C", "#E6550D", "#A63603", "#31A354", "#006D2C")
 
-
+# colors for TROST project report
 cols_treatment_report <- c("#558ED5", "#77933C") # control/stress
 cols_genotype_report <- c("grey", "#BF5300", "#5778B9", "#00756D", "#F7B944") # control/stress
 # grey  orange      blau      tuerkis    gelb
