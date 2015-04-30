@@ -65,6 +65,7 @@ cols_cultivar_treatment <- c("forestgreen","#68C468", "darkorange3","#FFA54D", "
 pie(rep(1,8), cols_cultivar_treatment, col=cols_cultivar_treatment, main="cols_cultivar_treatment")
 par(mfrow=c(1,1))
 
+# function to convert R color names to HEX code
 func_convert_color_name_to_hex <- function(color_name){
   rgb(red = col2rgb(color_name)[1], green = col2rgb(color_name)[2], blue = col2rgb(color_name)[3], maxColorValue=255)
 }
