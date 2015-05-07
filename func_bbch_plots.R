@@ -59,4 +59,4 @@ func_bbch_density_plot <- function(dataset, bbch, treatment, min=20, max=70){
 }
   
 
-theme_new$element_rect
+# theme_new$element_rect
