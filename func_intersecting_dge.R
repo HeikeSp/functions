@@ -37,7 +37,4 @@ func_intersecting_dge <- function(set1, set2, lab1, lab2){
   
   return(intersect_res)
   
-  # first 25 intersecting DGE (columns: row.names, logFC of set1, logFC of set2, logFC mean, logFC sum, annotations)
-  pander(head(	intersect_res[,c(1,2,6,10:13)], n=25))
-  
 }
