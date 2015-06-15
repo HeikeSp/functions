@@ -1,6 +1,6 @@
 ### Function to plot BBCH values in density plots and histograms
 
-func_bbch_plots <- function(dataset, bbch, treatment){
+func_bbch_plots <- function(dataset, bbch, treatment, min=20, max=70){
   
   library(ggplot2)
   theme_new <- theme_set(theme_bw())
@@ -17,11 +17,26 @@ func_bbch_plots <- function(dataset, bbch, treatment){
     legend.position="bottom")
   # aspect.ratio=1
 
-  plot_A <- ggplot(dataset, aes(x=bbch)) + geom_density(aes(group=treatment, colour=treatment, fill=treatment), alpha=0.5)  + coord_cartesian(xlim=c(20,70)) + scale_fill_manual(values = cols_treatment) + scale_color_manual(values = cols_treatment) + xlab("developmental stage (BBCH)")
+  plot_A <- ggplot(dataset, aes(x=bbch)) + 
+    geom_density(aes(group=treatment, colour=treatment, fill=treatment), alpha=0.5)  + 
+    coord_cartesian(xlim=c(min, max)) + 
+    scale_fill_manual(values = cols_treatment) + 
+    scale_color_manual(values = cols_treatment) + 
+    xlab("developmental stage (BBCH)")
   
-  plot_B <- ggplot(dataset, aes(x=bbch, fill=treatment, colour=treatment)) + geom_histogram(binwidth=1, alpha=0.5, position="identity")  + coord_cartesian(xlim=c(20,70)) + scale_fill_manual(values = cols_treatment) + scale_color_manual(values = cols_treatment) + xlab("developmental stage (BBCH)")
+  plot_B <- ggplot(dataset, aes(x=bbch, fill=treatment, colour=treatment)) + 
+    geom_histogram(binwidth=1, alpha=0.5, position="identity")  + 
+    coord_cartesian(xlim=c(min, max)) + 
+    scale_fill_manual(values = cols_treatment) + 
+    scale_color_manual(values = cols_treatment) + 
+    xlab("developmental stage (BBCH)")
   
-  plot_C <- ggplot(dataset, aes(x=bbch, fill=treatment)) + geom_histogram(binwidth=1, alpha=0.5, position="identity")  + coord_cartesian(xlim=c(20,70)) + scale_fill_manual(values = cols_treatment) + scale_color_manual(values = cols_treatment) + xlab("developmental stage (BBCH)")
+  plot_C <- ggplot(dataset, aes(x=bbch, fill=treatment)) + 
+    geom_histogram(binwidth=1, alpha=0.5, position="identity")  + 
+    coord_cartesian(xlim=c(min, max)) + 
+    scale_fill_manual(values = cols_treatment) + 
+    scale_color_manual(values = cols_treatment) + 
+    xlab("developmental stage (BBCH)")
   
   return(list(plot_A, plot_B, plot_C))
   
