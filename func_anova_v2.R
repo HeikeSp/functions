@@ -57,3 +57,21 @@ func_combine_anova_res7 <- function(res1, res2, res3, res4, res5, res6, res7, p_
                                    paste(factor2,"_",p_f2, sep=""))
   return(combine_anova_res)  
 }
+
+
+# combine anova results from several experiments --> 6
+func_combine_anova_res6 <- function(res1, res2, res3, res4, res5, res6, p_f1, p_f2, factor1, factor2){
+  combine_anova_res <- cbind(c(res1[p_f1, factor1], res2[p_f1, factor1], res3[p_f1, factor1], 
+                               res4[p_f1, factor1], res5[p_f1, factor1], res6[p_f1, factor1]), # factor1/p_f1
+                             c(res1[p_f2, factor1], res2[p_f2, factor1], res3[p_f2, factor1], 
+                               res4[p_f2, factor1], res5[p_f2, factor1], res6[p_f2, factor1]), # factor1/p_f2
+                             c(res1[p_f1, factor2], res2[p_f1, factor2], res3[p_f1, factor2], 
+                               res4[p_f1, factor2], res5[p_f1, factor2], res6[p_f1, factor2]), # factor2/p_f1
+                             c(res1[p_f2, factor2], res2[p_f2, factor2], res3[p_f2, factor2], 
+                               res4[p_f2, factor2], res5[p_f2, factor2], res6[p_f2, factor2])) # factor2/p_f2
+  colnames(combine_anova_res) <- c(paste(factor1,"_",p_f1, sep=""),
+                                   paste(factor1,"_",p_f2, sep=""),
+                                   paste(factor2,"_",p_f1, sep=""),
+                                   paste(factor2,"_",p_f2, sep=""))
+  return(combine_anova_res)  
+}
