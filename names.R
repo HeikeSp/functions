@@ -4,6 +4,11 @@ names_treatment_sample_time <- c("control \n early",
                                  "control \n late", 
                                  "drought stress \n late")
 
+names_treatment_sample_time_2 <- c("control \n early/before", "drought stress \n early/before", 
+                                 "control \n early/after", "drought stress \n early/after", 
+                                 "control \n late/before", "drought stress \n late/before", 
+                                 "control \n late/after", "drought stress \n late/after")
+
 names_treatment_sample_time_jki <- c("control \n 18.05.2011", 
                                  "drought stress \n 18.05.2011", 
                                  "control \n 25.05.2011", 
@@ -123,10 +128,26 @@ names_cultivar_30 <- c("Albatros", "", "Burana", "",
                         "Ramses", "", "Sibu", "", "Sommergold", "", "Tomba", "", 
                         "Tomensa", "", "Ulme", "", "Verdi", "")
 
-names_trials <- c("MPI GH \n trial 1", "MPI GH \n trial 2", "MPI GH \n trial 3", "MPI GH \n trial 4", "MPI GH \n trial 5", "MPI GH \n trial 6", "JKI GH \n trial 1", "JKI GH \n trial 2", "JKI GH \n trial 3", "JKI GH \n trial 4", "MPI field \n trial 2011", "MPI field \n trial 2012", "MPI field \n trial 2013", "JKI field \n trial 2012", "JKI field \n trial 2013", "LWK field \n trial 2011", "LWK field \n trial 2012", "LWK field \n trial 2013")
+names_trials <- c("MPI GH \n trial 1", "MPI GH \n trial 2", "MPI GH \n trial 3", 
+                  "MPI GH \n trial 4", "MPI GH \n trial 5", "MPI GH \n trial 6", 
+                  "JKI GH \n trial 1", "JKI GH \n trial 2", "JKI GH \n trial 3", 
+                  "JKI GH \n trial 4", "MPI field \n trial 2011", "MPI field \n trial 2012", 
+                  "MPI field \n trial 2013", "JKI field \n trial 2012", "JKI field \n trial 2013", 
+                  "LWK field \n trial 2011", "LWK field \n trial 2012", "LWK field \n trial 2013")
 
-names_trials_long <- c("MPI-MP \n greenhouse 1", "MPI-MP \n greenhouse 2", "MPI-MP \n greenhouse 3", "MPI-MP \n greenhouse 4", "MPI-MP \n greenhouse 5", "MPI-MP \n greenhouse 6", "JKI \n greenhouse 1", "JKI \n greenhouse 2", "JKI \n greenhouse 3", "JKI \n greenhouse 4", "MPI-MP \n field 2011", "MPI-MP \n field 2012", "MPI-MP \n field 2013", "JKI \n field 2012", "JKI \n field 2013", "LWK \n field 2011", "LWK \n field 2012", "LWK \n field 2013")
-names_trials_phd <- c("MPI-MP \n greenhouse 1", "MPI-MP \n greenhouse 2", "MPI-MP \n greenhouse 3", "MPI-MP \n greenhouse 4", "MPI-MP \n greenhouse 5", "JKI \n greenhouse 1", "JKI \n greenhouse 2", "JKI \n greenhouse 3", "JKI \n greenhouse 4", "MPI-MP \n field 2011", "MPI-MP \n field 2012", "JKI \n field 2012", "JKI \n field 2013", "LWK \n field 2011", "LWK \n field 2012")
+names_trials_long <- c("MPI-MP \n greenhouse 1", "MPI-MP \n greenhouse 2", 
+                       "MPI-MP \n greenhouse 3", "MPI-MP \n greenhouse 4", 
+                       "MPI-MP \n greenhouse 5", "MPI-MP \n greenhouse 6", 
+                       "JKI \n greenhouse 1", "JKI \n greenhouse 2", "JKI \n greenhouse 3", 
+                       "JKI \n greenhouse 4", "MPI-MP \n field 2011", "MPI-MP \n field 2012", 
+                       "MPI-MP \n field 2013", "JKI \n field 2012", "JKI \n field 2013", 
+                       "LWK \n field 2011", "LWK \n field 2012", "LWK \n field 2013")
+
+names_trials_phd <- c("MPI-MP \n greenhouse 1", "MPI-MP \n greenhouse 2", "MPI-MP \n greenhouse 3", 
+                      "MPI-MP \n greenhouse 4", "MPI-MP \n greenhouse 5", "JKI \n greenhouse 1", 
+                      "JKI \n greenhouse 2", "JKI \n greenhouse 3", "JKI \n greenhouse 4", 
+                      "MPI-MP \n field 2011", "MPI-MP \n field 2012", "JKI \n field 2012", 
+                      "JKI \n field 2013", "LWK \n field 2011", "LWK \n field 2012")
 
 check_names <- c("Alegria","Desiree","Milva","Saturna")
 
