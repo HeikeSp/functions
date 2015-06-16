@@ -1,3 +1,4 @@
+# please solve issue #1
 library(RODBC)
 phenotyper <- odbcConnect("Phenotyper") # Phenoyter is the DSN of the connection
 
