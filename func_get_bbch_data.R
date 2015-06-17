@@ -10,7 +10,9 @@
 func_get_bbch_data <- function(experiment_id = c('48656', '51790', '44443', '56726') ){
   
   library(RMySQL)
-  phenotyper = dbConnect(MySQL(), user='USER', password='PASSWORD', dbname='DBNAME', host='HOST')  
+  library(yaml)
+  login = yaml.load_file("login.yml")
+  phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
   
   data <- dbGetQuery(phenotyper, paste("SELECT
                                  Base.plant_id,
