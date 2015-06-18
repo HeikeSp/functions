@@ -60,3 +60,42 @@ func_agg_1fac <- function(normalized_values, trial_factors, factor1, function_na
   print(agg_mean2[1:3,1:5])
   return(agg_mean2)  
 }
+
+
+
+
+# function to combine mean and sd for two groups, e.g. cultivar and treatment
+
+func_combine_mean_sd <- function(phenotypes, variable_name, 
+                                 factor1 = "cultivar", factor2 = "treatment")
+  {
+  
+  res_mean <- aggregate(phenotypes[ , variable_name],
+                        by=list(phenotypes[ , factor1],
+                                phenotypes[ , factor2]),
+                        mean, na.rm=TRUE)
+  
+  res_sd <- aggregate(phenotypes[ , variable_name],
+                        by=list(phenotypes[ , factor1],
+                                phenotypes[ , factor2]),
+                        sd, na.rm=TRUE)
+  
+  colnames(res_mean) <- c(factor1, factor2, "mean") 
+  colnames(res_sd) <- c(factor1, factor2, "sd") 
+  
+  # convert treatment column into 2 columns (1 for control, 1 for stress)
+  res_mean <- cast(res_mean, cultivar ~ treatment, value="mean")
+  res_sd <- cast(res_sd, cultivar ~ treatment, value="sd")
+  
+  colnames(res_mean)[3] <- "drought_stress"
+  colnames(res_sd)[3] <- "drought_stress"
+  
+  # combine mean and sd
+  res_combined <- data.frame(cultivar = res_mean$cultivar,
+                             mean_control = res_mean$control,
+                             sd_control = res_sd$control,
+                             mean_drought_stress = res_mean$drought_stress,
+                             sd_drought_stress = res_sd$drought_stress)
+  
+  return(res_combined)
+}
