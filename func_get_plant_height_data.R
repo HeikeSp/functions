@@ -1,12 +1,15 @@
-library(RODBC)
-phenotyper <- odbcConnect("Phenotyper") # Phenoyter is the DSN of the connection
+
+library(RMySQL)
+library(yaml)
+login = yaml.load_file("../libpurzel/login.yaml")
+phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
 
 func_get_plant_height_data <- function(){
   
 
 plant_height_query <- paste("SELECT
-Base.plant_id,
-Base.experiment_id,
+                            Base.plant_id,
+                            Base.experiment_id,
                             Base.experiment_name,
                             Base.treatment,
                             Base.sample_id,
@@ -43,5 +46,7 @@ Base.experiment_id,
                             WHERE P1.number IS NOT NULL 
                             ")
 
-plant_height_query_result <- sqlQuery(phenotyper, plant_height_query)
+plant_height_query_send <- dbSendQuery(phenotyper, plant_height_query)
+
+plant_height_query_result <-  fetch(plant_height_query_send, n=-1)
 }

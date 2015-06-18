@@ -1,7 +1,9 @@
-library(RODBC)
+library(RMySQL)
+library(yaml)
+login = yaml.load_file("../libpurzel/login.yaml")
+phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
 
 func_get_yield_data <- function(){
-  phenotyper <- odbcConnect("Phenotyper")
 
   yield_query <- paste("select
   pl.id as plant_id,
@@ -25,8 +27,10 @@ func_get_yield_data <- function(){
   join trost_prod.values v on ph2.value_id = v.id
   join entities en on ph2.entity_id = en.id
   join subspecies sub on sub.id = pl.subspecies_id")
+
+  yield_query_send <- dbSendQuery(phenotyper, yield_query)
   
-  yield_query_result <- sqlQuery(phenotyper, yield_query)
+  yield_query_result <-  fetch(yield_query_send, n=-1)
   
   return(yield_query_result)
 

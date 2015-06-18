@@ -1,6 +1,8 @@
 
-library(RODBC)
-phenotyper <- odbcConnect("Phenotyper") # Phenoyter is the DSN of the connection
+library(RMySQL)
+library(yaml)
+login = yaml.load_file("../libpurzel/login.yaml")
+phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
 
 
 
@@ -55,8 +57,11 @@ func_get_fw_dw_mpi_greenhouse_data <- function(){
                                         AND (P2.date >= (P1.date + INTERVAL 1 DAY))) 
                                       WHERE P1.number IS NOT NULL AND P1.invalid IS NULL AND P2.number IS NOT NULL AND P2.invalid IS NULL
                                  ")
+  
+  fw_dw_query_send <- dbSendQuery(phenotyper, fw_dw_mpi_greenhouse_query)
+  
+  fw_dw_query_result <-  fetch(fw_dw_query_send, n=-1)
 
-fw_dw_query_result <- sqlQuery(phenotyper, fw_dw_mpi_greenhouse_query)
 }
 
 
@@ -71,7 +76,7 @@ fw_dw_query_result <- sqlQuery(phenotyper, fw_dw_mpi_greenhouse_query)
 
 func_get_fw_dw_mpi_field_data <- function(){
   
-  fw_dw_mpi_field_query <- paste("SELECT
+  fw_dw_mpi_field_query <- dbGetQuery(phenotyper, paste("SELECT
                                       Base.plant_id,
                                       Base.experiment_id,
                                       Base.experiment_name,
@@ -114,9 +119,11 @@ func_get_fw_dw_mpi_field_data <- function(){
                                       WHERE P1.number IS NOT NULL AND P1.invalid IS NULL 
                                       AND P2.number IS NOT NULL AND P2.invalid IS NULL 
                                       AND P3.number IS NOT NULL AND P3.invalid IS NULL;
-                                      ")
+                                      "))
 
-fw_dw_query_result <- sqlQuery(phenotyper, fw_dw_mpi_field_query)
+fw_dw_query_send <- dbSendQuery(phenotyper, fw_dw_mpi_field_query)
+
+fw_dw_query_result <-  fetch(fw_dw_query_send, n=-1)
 }
 
 
@@ -129,7 +136,7 @@ fw_dw_query_result <- sqlQuery(phenotyper, fw_dw_mpi_field_query)
 
 func_get_fw_dw_jki_field_data <- function(){
 
-fw_dw_jki_field_query <- paste("SELECT
+fw_dw_jki_field_query <- dbGetQuery(phenotyper, paste("SELECT
                                Base.plant_id,
                                Base.experiment_id,
                                Base.experiment_name,
@@ -168,9 +175,11 @@ fw_dw_jki_field_query <- paste("SELECT
                                LEFT JOIN phenotype_samples PS2 ON PS2.sample_id = Base.sample_id -- for DW
                                LEFT JOIN phenotypes P2 ON P2.id = PS2.phenotype_id AND P2.value_id = 69 AND P2.entity_id = 366
                                WHERE P1.number IS NOT NULL AND P1.invalid IS NULL AND P2.number IS NOT NULL AND P2.invalid IS NULL 
-                            ")
+                            "))
 
-fw_dw_query_result <- sqlQuery(phenotyper, fw_dw_jki_field_query)
+fw_dw_query_send <- dbSendQuery(phenotyper, fw_dw_jki_field_query)
+
+fw_dw_query_result <-  fetch(fw_dw_query_send, n=-1)
 }
 
 
@@ -183,7 +192,7 @@ fw_dw_query_result <- sqlQuery(phenotyper, fw_dw_jki_field_query)
 
 func_get_fw_dw_jki_greenhouse_data <- function(){
   
-  fw_dw_jki_greenhouse_query <- paste("SELECT
+  fw_dw_jki_greenhouse_query <- dbGetQuery(phenotyper, paste("SELECT
                                       Base.plant_id,
                                       Base.experiment_id,
                                       Base.experiment_name,
@@ -226,7 +235,9 @@ func_get_fw_dw_jki_greenhouse_data <- function(){
                                       WHERE P1.number IS NOT NULL AND P1.invalid IS NULL 
                                       AND P2.number IS NOT NULL AND P2.invalid IS NULL 
                                       AND P3.number IS NOT NULL AND P3.invalid IS NULL
-                                      ")
+                                      "))
+fw_dw_query_send <- dbSendQuery(phenotyper, fw_dw_jki_greenhouse_query)
 
-fw_dw_query_result <- sqlQuery(phenotyper, fw_dw_jki_greenhouse_query)
+fw_dw_query_result <-  fetch(fw_dw_query_send, n=-1)
+
 }
