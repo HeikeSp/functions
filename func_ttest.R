@@ -1,8 +1,8 @@
 #===============================================================================
 # Name   : Perform t-test 
 # Author : Heike Sprenger
-# Date   : 2014-08-12
-# Version: 0.1
+# Date   : 2015-06-18
+# Version: 0.2
 #===============================================================================
 
 func_ttest_treatment <- function(normalized_values, trial_factors, fac1, val1, threshold, 
@@ -69,4 +69,32 @@ func_ttest_treatment_all <- function(normalized_values, trial_factors, threshold
   print(length(which(res_ttest_adj < threshold)))
   
   return(res_ttest_adj)
+}
+
+#######################################################
+
+
+# t-test for comparing phenotypic traits, e.g. plant height, RWC, etc.
+# compare control vs. drought stress per cultivar
+
+func_ttest_treatment2 <- function(phenotypes, variable_name){
+  
+cultivars <- levels(phenotypes$cultivar)
+
+res_ttest <- c()
+
+  for (i in 1:length(cultivars))
+  {
+    res_ttest[i] <- t.test(subset(phenotypes[ , variable_name], 
+                                  phenotypes$cultivar==cultivars[i] & phenotypes$treatment=="control"),
+                           
+                           subset(phenotypes[ , variable_name], 
+                                  phenotypes$cultivar==cultivars[i] & phenotypes$treatment=="drought stress")
+                           
+                           )$p.value
+  }
+
+names(res_ttest) <- cultivars
+return(res_ttest)
+
 }
