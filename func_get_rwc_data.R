@@ -1,6 +1,16 @@
 # please solve issue #1
-library(RODBC)
-phenotyper <- odbcConnect("Phenotyper") # Phenoyter is the DSN of the connection
+#library(RODBC)
+#phenotyper <- odbcConnect("Phenotyper") # Phenoyter is the DSN of the connection
+
+library(RMySQL)
+library(yaml)
+login = yaml.load_file("../libpurzel/login.yaml")
+phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
+
+# dbClearResult(dbListResults(phenotyper)[[1]])
+# 
+# rs = dbSendQuery(phenotyper, "select * from cultures")
+# data = fetch(rs, n=-1)
 
 func_get_rwc_data <- function(){
   
@@ -62,5 +72,9 @@ func_get_rwc_data <- function(){
                           AND P3.invalid IS NULL
                      ")
 
-rwc_query_result <- sqlQuery(phenotyper, rwc_query)
+#rwc_query_result <- sqlQuery(phenotyper, rwc_query)
+
+rwc_query_send <- dbSendQuery(mydb, rwc_query)
+
+rwc_query_result <-  fetch(rwc_query_send, n=-1)
 }
