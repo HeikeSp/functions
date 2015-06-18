@@ -29,14 +29,10 @@ names_treatment_cultivar <- c("control \n Alegria", "drought stress \n Alegria",
 							                "control \n Desiree", "drought stress \n Desiree", 
 							                "control \n Saturna", "drought stress \n Saturna")
 
-names_treatment_cultivar_reordered <- c("control \n Alegria", 
-                                        "drought stress \n Alegria", 
-                                        "control \n Milva", 
-                                        "drought stress \n Milva", 
-                                        "control \n Desiree", 
-                                        "drought stress \n Desiree",
-                                        "control \n Saturna", 
-                                        "drought stress \n Saturna")
+names_treatment_cultivar_reordered <- c("control \n Milva", "drought stress \n Milva",
+                                        "control \n Alegria", "drought stress \n Alegria",
+                                        "control \n Desiree", "drought stress \n Desiree",
+                                        "control \n Saturna", "drought stress \n Saturna")
 
 names_treatment_sample_time_cultivar <- c("control \n early, Alegria", 
                                           "drought stress \n early, Alegria", 
@@ -50,6 +46,23 @@ names_treatment_sample_time_cultivar <- c("control \n early, Alegria",
                                           "drought stress \n early, Milva", 
                                           "control \n late, Milva", 
                                           "drought stress \n late, Milva", 
+                                          "control \n early, Saturna", 
+                                          "drought stress \n early, Saturna", 
+                                          "control \n late, Saturna", 
+                                          "drought stress \n late, Saturna")
+
+names_treatment_sample_time_cultivar_reordered <- c("control \n early, Milva", 
+                                          "drought stress \n early, Milva", 
+                                          "control \n late, Milva", 
+                                          "drought stress \n late, Milva",
+                                          "control \n early, Alegria", 
+                                          "drought stress \n early, Alegria", 
+                                          "control \n late, Alegria", 
+                                          "drought stress \n late, Alegria", 
+                                          "control \n early, Desiree", 
+                                          "drought stress \n early, Desiree", 
+                                          "control \n late, Desiree", 
+                                          "drought stress \n late, Desiree", 
                                           "control \n early, Saturna", 
                                           "drought stress \n early, Saturna", 
                                           "control \n late, Saturna", 
@@ -149,7 +162,9 @@ names_trials_phd <- c("MPI-MP \n greenhouse 1", "MPI-MP \n greenhouse 2", "MPI-M
                       "MPI-MP \n field 2011", "MPI-MP \n field 2012", "JKI \n field 2012", 
                       "JKI \n field 2013", "LWK \n field 2011", "LWK \n field 2012")
 
-check_names <- c("Alegria","Desiree","Milva","Saturna")
+check_names <- c("Alegria", "Desiree", "Milva", "Saturna")
+
+check_names_ordered <- c("Milva", "Alegria", "Desiree", "Saturna")
 
 dethlingen_2011_names <- c("Albatros", "Burana", "Eldena", "Eurobravo", "Euroflora", "Euronova", 
                            "Euroresa", "Eurostarch",  "Eurotango",   "Golf",  "Jasia",  "Jumbo",
@@ -161,3 +176,9 @@ cultivar_all_ids <- c("2870", "Alegria", "2877", "Desiree", "2854", "2855",  "28
                             "2858", "2859", "2860",  "2878", "2869", "2864", "2871", "2872", 
                             "2873", "2874", "2861", "2865", "2866", "2875", "Milva", "2876", "2867", "2879", 
                             "2880", "Saturna", "2881", "2868", "2863", "2862", "2853", "2882")
+
+names_cultivars <- c("Albatros", "Alegria", "Burana", "Desiree", "Eldena", "Eurobravo", 
+                     "Euroflora", "Euronova", "Euroresa", "Eurostarch",  "Eurotango", 
+                     "Golf", "Jasia", "Jumbo", "Karlena", "Kiebitz", "Kolibri", "Kormoran", 
+                     "Kuras", "Logo", "Maxi", "Maxilla", "Milva", "Pirol", "Power", "Priamos", 
+                     "Ramses", "Saturna", "Sibu", "Sommergold", "Tomba", "Tomensa", "Ulme", "Verdi")
