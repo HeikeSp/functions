@@ -2,19 +2,19 @@ func_starch_yield_mpipruef_check <- function(yield_data, culture_id,
                                              cultivars=c("Alegria", "Desiree", "Milva", "Saturna")){
   
 # get yield data subset for one experiment
-yield_trial <- subset(yield_data, yield_data$culture == culture_id & yield_data$cultivar_name %in% cultivars)
+yield_trial <- subset(yield_data, yield_data$culture == culture_id & yield_data$cultivar %in% cultivars)
 #table(yield_trial$attribute)
 #table(yield_trial$attribute, yield_trial$entity_name)
 
 # drop levels of factors (after getting subset)
-yield_trial$cultivar_name <- droplevels(yield_trial$cultivar_name)
+yield_trial$cultivar <- droplevels(yield_trial$cultivar)
 yield_trial$treatment <- droplevels(yield_trial$treatment)
 # rename levels of factors
 levels(yield_trial$treatment) <- c("control", "drought stress")
-#levels(yield_trial$cultivar_name) <- c("Alegria", "Desiree", "Milva", "Saturna")
+#levels(yield_trial$cultivar) <- c("Desiree", "Alegria", "Milva", "Saturna")
 
 # reorder cultivar names (by tolerance)
-yield_trial$cultivar_name <- factor(yield_trial$cultivar_name, levels=c("Alegria", "Milva", "Desiree", "Saturna"))
+yield_trial$cultivar <- factor(yield_trial$cultivar, levels=c("Alegria", "Milva", "Desiree", "Saturna"))
 
 # get subset for tuber_FW, tubercore_FW and tubercore_DW
 tuber_FW <- subset(yield_trial, 

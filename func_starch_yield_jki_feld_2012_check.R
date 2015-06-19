@@ -2,18 +2,18 @@ func_starch_yield_jki_feld_2012_check <- function(yield_data, culture_id, num_pe
                                             cultivars=c("Alegria", "Desiree", "Milva", "Saturna")){
   
 # get yield data subset for one experiment
-yield_trial <- subset(yield_data, yield_data$culture == culture_id & yield_data$cultivar_name %in% cultivars)
+yield_trial <- subset(yield_data, yield_data$culture == culture_id & yield_data$cultivar %in% cultivars)
 #table(yield_trial$attribute)
 #table(yield_trial$attribute, yield_trial$entity_name)
 
 # drop levels of factors (after getting subset)
-yield_trial$cultivar_name <- droplevels(yield_trial$cultivar_name)
+yield_trial$cultivar <- droplevels(yield_trial$cultivar)
 yield_trial$treatment <- droplevels(yield_trial$treatment)
 # rename levels of factors
 levels(yield_trial$treatment) <- c("control", "drought stress")
 
 # reorder cultivar names (by tolerance)
-yield_trial$cultivar_name <- factor(yield_trial$cultivar_name, levels=c("Alegria", "Milva", "Desiree", "Saturna"))
+yield_trial$cultivar <- factor(yield_trial$cultivar, levels=c("Milva", "Alegria", "Desiree", "Saturna"))
 
 wrong_entries <- which(yield_trial$measurement_date == "2013-09-19")
 yield_trial <- yield_trial[-wrong_entries,]

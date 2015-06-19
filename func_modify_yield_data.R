@@ -17,13 +17,13 @@ yield_query_result$number <- as.numeric(as.character(yield_query_result$number))
 #sum(is.na(yield_query_result$number))
 # 164
 
-levels(yield_query_result$cultivar_name) <- c("Albatros","Alegria","Burana","Desiree","Eldena",
-                                              "Eurobravo","Euroflora","Euronova","Euroresa",
-                                              "Eurostarch","Eurotango","Golf","Jasia","Jumbo",
-                                              "Karlena","Kiebitz","Kolibri","Kormoran","Kuras",
-                                              "Logo","Maxi","Maxilla","Milva","Pirol","Power",
-                                              "Priamos","Ramses","Saturna","Sibu","Sommergold",
-                                              "Tomba","Tomensa","Ulme","Verdi")
+levels(yield_query_result$cultivar) <- c("Albatros","Alegria","Burana","Desiree","Eldena",
+                                         "Eurobravo","Euroflora","Euronova","Euroresa",
+                                         "Eurostarch","Eurotango","Golf","Jasia","Jumbo",
+                                         "Karlena","Kiebitz","Kolibri","Kormoran","Kuras",
+                                         "Logo","Maxi","Maxilla","Milva","Pirol","Power",
+                                         "Priamos","Ramses","Saturna","Sibu","Sommergold",
+                                         "Tomba","Tomensa","Ulme","Verdi")
 
 # modify treatment factor 
 # Dethlingen trials: 

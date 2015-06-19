@@ -6,11 +6,11 @@ yield_trial <- subset(yield_data, yield_data$culture == culture_id)
 #table(yield_trial$attribute, yield_trial$entity_name)
 
 # drop levels of factors (after getting subset)
-yield_trial$cultivar_name <- droplevels(yield_trial$cultivar_name)
+yield_trial$cultivar <- droplevels(yield_trial$cultivar)
 yield_trial$treatment <- droplevels(yield_trial$treatment)
 # rename levels of factors
 levels(yield_trial$treatment) <- c("control", "drought stress")
-#levels(yield_trial$cultivar_name) <- c("Alegria", "Desiree", "Milva", "Saturna")
+#levels(yield_trial$cultivar) <- c("Desiree", "Alegria", "Milva", "Saturna")
 
 
 # get subset for tuber_FW, tubercore_FW and tubercore_DW

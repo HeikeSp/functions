@@ -9,7 +9,7 @@ func_get_yield_data <- function(){
   pl.id as plant_id,
   pl.culture_id as culture,
   pl.subspecies_id AS cultivar_id,
-  sub.cultivar AS cultivar_name,
+  sub.cultivar AS cultivar,
   ph1.value_id as treatment,
   ph2.date as measurement_date,
   ph2.time as measurement_time,

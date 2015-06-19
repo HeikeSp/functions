@@ -6,11 +6,11 @@ yield_trial <- subset(yield_data, yield_data$culture == culture_id)
 #table(yield_trial$attribute, yield_trial$entity_name)
 
 # drop levels of factors (after getting subset)
-yield_trial$cultivar_name <- droplevels(yield_trial$cultivar_name)
+yield_trial$cultivar <- droplevels(yield_trial$cultivar)
 
 # rename levels of factors
 levels(yield_trial$treatment) <- c("control", "drought stress")
-#levels(yield_trial$cultivar_name) <- c("Albatros","Alegria","Burana","Desiree","Eldena","Eurobravo","Euroflora","Euronova", "Euroresa","Eurostarch","Eurotango","Golf","Jasia","Jumbo","Karlena","Kiebitz", "Kolibri","Kormoran","Kuras","Logo","Maxi","Maxilla","Milva","Pirol","Power","Priamos","Ramses","Saturna","Sibu","Sommergold","Tomba","Tomensa","Ulme","Verdi")
+#levels(yield_trial$cultivar) <- c("Albatros","Alegria","Burana","Desiree","Eldena","Eurobravo","Euroflora","Euronova", "Euroresa","Eurostarch","Eurotango","Golf","Jasia","Jumbo","Karlena","Kiebitz", "Kolibri","Kormoran","Kuras","Logo","Maxi","Maxilla","Milva","Pirol","Power","Priamos","Ramses","Saturna","Sibu","Sommergold","Tomba","Tomensa","Ulme","Verdi")
 
 # get subset for tuber_FW (in kg), starch content and starch yield
 tuber_FW_kg <- subset(yield_trial, yield_trial$attribute == "absolutes Frischgewicht" & yield_trial$entity_name == "Knolle")

@@ -7,7 +7,7 @@ func_calc_relSY <- function(yield_trial, cultivar_names = c("Albatros","Alegria"
                                                          "Ramses","Saturna","Sibu","Sommergold","Tomba",
                                                          "Tomensa","Ulme","Verdi")){
   control <- subset(yield_trial, yield_trial$treatment=="control")
-  control_mean <- aggregate(control$starch_yield_kg_per_plant, by=list(control$cultivar_name), mean, na.rm=T)
+  control_mean <- aggregate(control$starch_yield_kg_per_plant, by=list(control$cultivar), mean, na.rm=T)
   colnames(control_mean) <- c("cultivar", "starch_yield_kg_per_plant")
   control_mean_cultivars <- list()
   for (cultivar_name in cultivar_names){
@@ -20,7 +20,7 @@ func_calc_relSY <- function(yield_trial, cultivar_names = c("Albatros","Alegria"
   stress_cultivars <- list()
   for (cultivar_name in cultivar_names){
     stress_cultivars[[cultivar_name]] <- c(subset(stress$starch_yield_kg_per_plant, 
-                                                stress$cultivar_name == cultivar_name))
+                                                stress$cultivar == cultivar_name))
  }
   
   #return(stress_cultivars)
