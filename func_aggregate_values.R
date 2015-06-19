@@ -66,36 +66,65 @@ func_agg_1fac <- function(normalized_values, trial_factors, factor1, function_na
 
 # function to combine mean and sd for two groups, e.g. cultivar and treatment
 
-func_combine_mean_sd <- function(phenotypes, variable_name, 
+func_combine_mean_sd <- function(phenotypes, func = "mean", variable_name, 
                                  factor1 = "cultivar", factor2 = "treatment")
   {
   
-  res_mean <- aggregate(phenotypes[ , variable_name],
-                        by=list(phenotypes[ , factor1],
-                                phenotypes[ , factor2]),
-                        mean, na.rm=TRUE)
-  
+  # aggregate values for sd
   res_sd <- aggregate(phenotypes[ , variable_name],
-                        by=list(phenotypes[ , factor1],
-                                phenotypes[ , factor2]),
-                        sd, na.rm=TRUE)
+                      by=list(phenotypes[ , factor1],
+                              phenotypes[ , factor2]),
+                      sd, na.rm=TRUE)
   
-  colnames(res_mean) <- c(factor1, factor2, "mean") 
   colnames(res_sd) <- c(factor1, factor2, "sd") 
   
   # convert treatment column into 2 columns (1 for control, 1 for stress)
-  res_mean <- cast(res_mean, cultivar ~ treatment, value="mean")
   res_sd <- cast(res_sd, cultivar ~ treatment, value="sd")
-  
-  colnames(res_mean)[3] <- "drought_stress"
   colnames(res_sd)[3] <- "drought_stress"
   
-  # combine mean and sd
-  res_combined <- data.frame(cultivar = res_mean$cultivar,
-                             mean_control = res_mean$control,
-                             sd_control = res_sd$control,
-                             mean_drought_stress = res_mean$drought_stress,
-                             sd_drought_stress = res_sd$drought_stress)
+  
+  if(func=="mean")
+  {
+    res_mean <- aggregate(phenotypes[ , variable_name],
+                          by=list(phenotypes[ , factor1],
+                                  phenotypes[ , factor2]),
+                          mean, na.rm=TRUE)
+    
+    colnames(res_mean) <- c(factor1, factor2, "mean") 
+    
+    # convert treatment column into 2 columns (1 for control, 1 for stress)
+    res_mean <- cast(res_mean, cultivar ~ treatment, value="mean")
+    colnames(res_mean)[3] <- "drought_stress"
+    
+    # combine MEAN and sd
+    res_combined <- data.frame(cultivar = res_mean$cultivar,
+                               mean_control = res_mean$control,
+                               sd_control = res_sd$control,
+                               mean_drought_stress = res_mean$drought_stress,
+                               sd_drought_stress = res_sd$drought_stress)
+  }
+
+  
+  else # in case of MEDIAN
+  {
+    res_median <- aggregate(phenotypes[ , variable_name],
+                            by=list(phenotypes[ , factor1],
+                                    phenotypes[ , factor2]),
+                            median, na.rm=TRUE)
+    
+    colnames(res_median) <- c(factor1, factor2, "median") 
+    
+    # convert treatment column into 2 columns (1 for control, 1 for stress)
+    res_median <- cast(res_median, cultivar ~ treatment, value="median")
+    colnames(res_median)[3] <- "drought_stress"
+    
+    # combine MEDIAN and sd
+    res_combined <- data.frame(cultivar = res_median$cultivar,
+                               median_control = res_median$control,
+                               sd_control = res_sd$control,
+                               median_drought_stress = res_median$drought_stress,
+                               sd_drought_stress = res_sd$drought_stress)
+  }
   
   return(res_combined)
 }
