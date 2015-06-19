@@ -1,6 +1,6 @@
 ### Function to plot BBCH values in density plots and histograms
 
-func_bbch_plots <- function(dataset, bbch, treatment, min=20, max=70){
+func_bbch_plots <- function(dataset, bbch, treatment, min=20, max=70, label_xaxis = "developmental stage (BBCH)"){
   
   library(ggplot2)
   theme_new <- theme_set(theme_bw())
@@ -22,21 +22,21 @@ func_bbch_plots <- function(dataset, bbch, treatment, min=20, max=70){
     coord_cartesian(xlim=c(min, max)) + 
     scale_fill_manual(values = cols_treatment) + 
     scale_color_manual(values = cols_treatment) + 
-    xlab("developmental stage (BBCH)")
+    xlab(label_xaxis)
   
   plot_B <- ggplot(dataset, aes(x=bbch, fill=treatment, colour=treatment)) + 
     geom_histogram(binwidth=1, alpha=0.5, position="identity")  + 
     coord_cartesian(xlim=c(min, max)) + 
     scale_fill_manual(values = cols_treatment) + 
     scale_color_manual(values = cols_treatment) + 
-    xlab("developmental stage (BBCH)")
+    xlab(label_xaxis)
   
   plot_C <- ggplot(dataset, aes(x=bbch, fill=treatment)) + 
     geom_histogram(binwidth=1, alpha=0.5, position="identity")  + 
     coord_cartesian(xlim=c(min, max)) + 
     scale_fill_manual(values = cols_treatment) + 
     scale_color_manual(values = cols_treatment) + 
-    xlab("developmental stage (BBCH)")
+    xlab(label_xaxis)
   
   return(list(plot_A, plot_B, plot_C))
   

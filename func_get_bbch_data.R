@@ -68,8 +68,8 @@ func_get_bbch_data <- function(experiment_id = c('48656', '51790', '44443', '567
 
 func_get_bbch_data_RODBCext <- function(experiment_id = c('48656', '51790', '44443', '56726') ){
   
-  library(RODBCext)
-  connHandle <- odbcConnect("Phenotyper")
+  #library(RODBCext)
+  #connHandle <- odbcConnect("Phenotyper")
 
   filterData <- data.frame(PL.culture_id = experiment_id)
   
@@ -179,8 +179,8 @@ func_get_bbch_data2 <- function(experiment_id = c('48656', '51790', '44443', '56
 # solution for parametrization using RODBCext
 func_get_bbch_data2_RODBCext <- function(experiment_id = '47199' ){
   
-  library(RODBCext)
-  connHandle <- odbcConnect("Phenotyper")
+  #library(RODBCext)
+  #connHandle <- odbcConnect("Phenotyper")
   
   filterData <- data.frame(PL.culture_id = experiment_id)
   
@@ -229,8 +229,8 @@ func_get_bbch_data2_RODBCext <- function(experiment_id = '47199' ){
 # old version: can only handle one experiment_id #
 ##################################################
 
-library(RODBC)
-phenotyper <- odbcConnect("Phenotyper")
+#library(RODBC)
+#phenotyper <- odbcConnect("Phenotyper")
 
 func_get_bbch_data_old <- function(experiment_id){
   

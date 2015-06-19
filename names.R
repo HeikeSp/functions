@@ -121,7 +121,7 @@ names_cultivar_all_ids <- c("2870", "", "Alegria", "", "2877", "", "Desiree", ""
                         "2880", "", "Saturna", "", "2881", "", "2868", "", "Tomba", "", 
                         "2863", "", "2853", "", "2882", "")
 
-# für MPI Feld 2013 --> Golf fehlt!
+# fuer MPI Feld 2013 --> Golf fehlt!
 names_cultivar_33 <- c("Albatros", "", "Alegria", "", "Burana", "", "Desiree", "", 
                         "Eldena", "", "Eurobravo", "",  "Euroflora", "", "Euronova", "",
                         "Euroresa", "", "Eurostarch", "", "Eurotango", "",  
@@ -131,7 +131,7 @@ names_cultivar_33 <- c("Albatros", "", "Alegria", "", "Burana", "", "Desiree", "
                         "Ramses", "", "Saturna", "", "Sibu", "", "Sommergold", "", "Tomba", "", 
                         "Tomensa", "", "Ulme", "", "Verdi", "")
 
-# für Dethlingen 2011 --> keine Check-Sorten!
+# fuer Dethlingen 2011 --> keine Check-Sorten!
 names_cultivar_30 <- c("Albatros", "", "Burana", "", 
                         "Eldena", "", "Eurobravo", "",  "Euroflora", "", "Euronova", "",
                         "Euroresa", "", "Eurostarch", "", "Eurotango", "",  "Golf", "",
