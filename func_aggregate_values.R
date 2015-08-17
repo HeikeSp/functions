@@ -47,6 +47,19 @@ func_agg_2fac <- function(normalized_values, trial_factors, factor1, factor2, fu
   return(agg_mean2)  
 }
 
+func_agg_2fac_b <- function(normalized_values, trial_factors, factor1, factor2, function_name){
+  agg_mean <- aggregate(normalized_values, 
+                        by=list(trial_factors[,factor1], trial_factors[,factor2]),
+                        function_name, na.rm=TRUE)
+  colnames(agg_mean)[1:2] <- c(factor1, factor2)
+  #colnames(agg_mean)[3:ncol(agg_mean)] <- as.character(analytes$name_short)
+  agg_mean_names <- interaction(agg_mean[,1:2])
+  agg_mean2 <- cbind(agg_mean_names, agg_mean[,-(1:2)])
+  colnames(agg_mean2)[1] <- "sample"
+  print(agg_mean2[1:3,1:5])
+  return(agg_mean2)  
+}
+
 
 func_agg_1fac <- function(normalized_values, trial_factors, factor1, function_name, analytes){
   agg_mean <- aggregate(normalized_values, 
