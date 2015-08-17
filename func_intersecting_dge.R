@@ -8,7 +8,7 @@
     # (3) PValue
     # (4) FDR
 
-func_intersecting_dge <- function(set1, set2, lab1, lab2){
+func_intersecting_dge <- function(set1, set2, lab1, lab2, return_complete = TRUE){
   
   intersecting_rownames <- intersect( rownames(set1), rownames(set2) )
   
@@ -29,12 +29,15 @@ func_intersecting_dge <- function(set1, set2, lab1, lab2){
   intersect_res$logFC_mean <- apply(cbind(	intersect_res[,1], intersect_res[,5]), 1 ,mean)
   intersect_res$logFC_sum  <- apply(cbind(	intersect_res[,1], intersect_res[,5]), 1 ,sum)
   
-  # merge intersecting DGE with MapMan and PGSC annotation
-  intersect_res <- merge(	intersect_res, merge_mapman_pgsc_dmg, by.x="row.names", by.y="pgsc_dmg")
-  
-  # order table of intersecting DGE by sum of logFC
-  intersect_res <- 	intersect_res[order(	intersect_res$logFC_sum),]
-  
-  return(intersect_res)
-  
-}
+
+  if(return_complete == TRUE) {
+    intersect_res_complete <- merge(	intersect_res, merge_mapman_pgsc, by.x="row.names", by.y="pgsc_dmg")
+    #intersect_res_complete <- intersect_res_complete[order(	intersect_res_complete$logFC_sum),]
+    return(intersect_res_complete)
+  } else {
+      # merge intersecting DGE with MapMan and PGSC annotation
+      intersect_res <- merge(	intersect_res, merge_mapman_pgsc_dmg, by.x="row.names", by.y="pgsc_dmg")
+      # order table of intersecting DGE by sum of logFC
+      #intersect_res <- intersect_res[order(	intersect_res$logFC_sum),]
+      return(intersect_res)}
+  }
