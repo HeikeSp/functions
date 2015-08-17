@@ -2,8 +2,9 @@
 library(VennDiagram)
 
 # Venn diagramm with 2 sets
+# The function defaults to placing the larger set on the left. inverted or rotation.degree can be used to reverse this. 
 
-func_venn_diagram_2 <- function(res1, res2, threshold = 0, lab1, lab2, filepath=NULL){
+func_venn_diagram_2 <- function(res1, res2, threshold = 0, lab1, lab2, filepath=NULL, rot=0){
   if (threshold == 0) # don't use threshold
   {
     w <- list(
@@ -28,7 +29,9 @@ func_venn_diagram_2 <- function(res1, res2, threshold = 0, lab1, lab2, filepath=
       margin = 0.2, # Bildbegrenzung 
       cex = 1.5, 
       cat.dist = 0.1, 
-      scaled = FALSE)
+      scaled = FALSE,
+      rotation.degree=rot) # The function defaults to placing the larger set on the left. 
+                           # inverted or rotation.degree can be used to reverse this. 
     
     return(venn.plot)
   }
