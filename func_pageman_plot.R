@@ -1,4 +1,4 @@
-# function for pageman plot (heatmap)
+# function for preparation of pageman plot (heatmap)
 
 func_pageman_plot <- function(pageman_data, threshold, show_all = TRUE){
   colnames(pageman_data) <- c("bin_id", "bin_name", 
@@ -61,6 +61,10 @@ func_pageman_plot2 <- function(pageman_data, threshold){
   pageman_data_sig_3_sel <- pageman_data_sig_3[which(abs(pageman_data_sig_3_sum)>0),]
   return(pageman_data_sig_3_sel)
 }
+
+######################################################
+
+# function for plotting the heatmap itself
 
 
 func_pageman_heatmap <- function(pageman_data, bin_names, 
