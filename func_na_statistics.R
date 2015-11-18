@@ -8,7 +8,7 @@
 # prints NA statistics and returns analytes with more than 40% NAs
 # matrix should be with analytes in columns and samples in rows!
 
-func_print_na_statistics <- function(matrix, analytes=analytes_6sel_exp_sort) {
+func_print_na_statistics <- function(matrix, analytes = analytes_6sel_exp_sort) {
   print(paste("percentage of NAs: ", round((sum(is.na(matrix)) / prod(dim(matrix)) * 100), digits=3), "%" ))
   #print(paste("NAs per samples (=rows): ", sort(apply(matrix, 1, function(x) sum(is.na(x)))) ))
   #print(paste("NAs per analytes (=column): ", sort(apply(matrix, 2, function(x) sum(is.na(x)))) ))
@@ -17,15 +17,15 @@ func_print_na_statistics <- function(matrix, analytes=analytes_6sel_exp_sort) {
   high_na_analytes <- which(apply(matrix, 2, function(x) sum(is.na(x))) > (nrow(matrix) * 0.4) )
   print(paste("num of analytes with more than 40% NAs: ", length(high_na_analytes)))
   print("num of NAs for problematic analytes:")
-#  if(length(high_na_analytes == 1)){
-#    print(cbind(as.character(analytes$name[high_na_analytes]), 
-#                sum(is.na(all_pot_merge[,high_na_analytes])) ))
-#  }
-#
-#  else{
+  if(length(high_na_analytes == 1)){
+    print(cbind(as.character(analytes$name[high_na_analytes]), 
+                sum(is.na(matrix[,high_na_analytes])) ))
+    }
+
+  else{
     print(cbind(as.character(analytes$name[high_na_analytes]), 
                 apply(matrix[,high_na_analytes], 2, function(x) sum(is.na(x)) )))
-#  }
+  }
   # return(high_na_analytes) # gives only colnumber of analyte
 }
 
