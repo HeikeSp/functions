@@ -8,7 +8,11 @@
 # create factor for tolerance (Milva and Alegria: sensitive | Desiree and Saturna: tolerant)
 func_create_tolerance_factor <- function(trial_matrix) {
   trial_tolerance <- rep("NA", nrow(trial_matrix))
-  trial_tolerance[which(trial_matrix$cultivar %in% c("Milva", "Alegria"))] <- "sensitive"
-  trial_tolerance[which(trial_matrix$cultivar %in% c("Desiree", "Saturna"))] <- "tolerant"
+  
+  if(length(levels(trial_matrix$cultivar))==4){
+    trial_tolerance[which(trial_matrix$cultivar %in% c("Milva", "Alegria"))] <- "sensitive"
+    trial_tolerance[which(trial_matrix$cultivar %in% c("Desiree", "Saturna"))] <- "tolerant"
+  }
+  
   trial_tolerance <- as.factor(trial_tolerance)
 }

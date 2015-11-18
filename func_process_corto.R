@@ -5,7 +5,7 @@ func_process_corto <- function(corto_data, threshold = 1) {
     colnames(corto_data)[5] <- "adj.pvalue.bonferroni"
   
     # add Benjamini-Hochberg (BH) adjusted pvalues
-    corto_data$adj.pvalue.bh <- p.adjust(corto_data$Pvalue)
+    corto_data$adj.pvalue.bh <- p.adjust(corto_data$Pvalu, method = "BH")
     
     # transform adjusted pvalue into z-score
     corto_data$z.score.bonferroni <- abs(qnorm(corto_data$adj.pvalue.bonferroni/2))

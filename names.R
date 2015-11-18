@@ -177,7 +177,7 @@ cultivar_all_ids <- c("2870", "Alegria", "2877", "Desiree", "2854", "2855",  "28
                       "2874", "2861", "2865", "2866", "2875", "Milva", "2876", "2867", "2879", 
                       "2880", "Saturna", "2881", "2868", "2863", "2862", "2853", "2882")
 
-names_cultivars <- c("Albatros", "Alegria", "Burana", "Desiree", "Eldena", "Eurobravo", 
+names_cultivars_34 <- c("Albatros", "Alegria", "Burana", "Desiree", "Eldena", "Eurobravo", 
                      "Euroflora", "Euronova", "Euroresa", "Eurostarch",  "Eurotango", 
                      "Golf", "Jasia", "Jumbo", "Karlena", "Kiebitz", "Kolibri", "Kormoran", 
                      "Kuras", "Logo", "Maxi", "Maxilla", "Milva", "Pirol", "Power", "Priamos", 

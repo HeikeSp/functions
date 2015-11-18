@@ -1,3 +1,3 @@
 func_CV <- function(var){
-  (sd(var)/mean(var))*100
+  (sd(var, na.rm = T)/mean(var, na.rm = T)) * 100
 }

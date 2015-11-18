@@ -32,7 +32,7 @@ func_boxplot_sorted <- function(matrix, factor, analytes){
     # sorted boxplot
     boxplot(value ~ matrix_df_sorted, data = matrix_df, 
             ylab="log10 intensity", cex.lab=1, cex.axis=0.7, 
-            las=2, col=color, main = analytes$name_short[i])
+            las=2, col=color, main = analytes$Name[i])
     legend("bottomright", fill=levels(color_fac), 
            legend=c("AxR", "Desiree", "Ramses", "ExA", "Albatros", "Euroresa"), 
            horiz=T, cex=0.8)

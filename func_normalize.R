@@ -12,15 +12,16 @@
 # this applies source("RemoveFactors_function.R") with the following parameters:
 #
 # overlapped_analytes_sample_subset_log10_values : data to normalize (numeric + in same order as trial_factors)
+# rows: samples, columns: analytes
 # trial_factors : dataframe containing the factors/numerical vars for ANOVA model
 # facs : all factors to be incorporated in the model in the desired order
 # keep : all factors to be retained in the normalized data
 
 func_normalize <- function(overlapped_analytes_sample_subset_log10_values, trial_factors,
-                           facs=c("cultivar", "treatment", "sample_time", "SequenceID", "BatchID", "log10_AvgAnnotated"),
-                           keep=c("cultivar", "treatment", "sample_time")) {
+                           facs = c("cultivar", "treatment", "sample_time", "SequenceID", "BatchID", "log10_AvgAnnotated"),
+                           keep = c("cultivar", "treatment", "sample_time")) {
   normalized_values <- apply(overlapped_analytes_sample_subset_log10_values, 2, RemoveFactors,
-                             sam=trial_factors, facs=facs, keep=keep)
+                             sam = trial_factors, facs=facs, keep=keep)
   colnames(normalized_values) <- colnames(overlapped_analytes_sample_subset_log10_values)
   rownames(normalized_values) <- rownames(overlapped_analytes_sample_subset_log10_values)
   print("normalized values dim:")

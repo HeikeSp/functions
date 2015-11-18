@@ -56,10 +56,12 @@ cols_late <- c("#E27572","#6B0705") # 2 time points (late/before - late/after)
 #cols_4B <- c("skyblue", "#FF9973", "darkblue", "orangered4") # 4 conditions
 #pie(1:4, cols_4B, col=cols_4B)
 
-cols_cultivar <- c("forestgreen", "darkorange3","darkblue", "deeppink4") # 4 cultivars
-pie(rep(1,4), cols_cultivar, col=cols_cultivar, main="cols_cultivar")
+cols_cultivar_check <- c("forestgreen", "darkorange3","darkblue", "deeppink4") # 4 cultivars
+pie(rep(1,4), cols_cultivar_check, col=cols_cultivar_check, main="cols_cultivar")
 
 cols_cultivar2 <- c("#68C468", "#FFA54D","#3D3DF7", "#BA3E82") # 4 cultivars
+
+cols_cultivar_34 <- rainbow(34) # 34 cultivars
 
 cols_cultivar_treatment <- c("forestgreen","#68C468", "darkorange3","#FFA54D", "darkblue","#3D3DF7", "deeppink4", "#BA3E82") # 4 cultivars / 2 treatments
 pie(rep(1,8), cols_cultivar_treatment, col=cols_cultivar_treatment, main="cols_cultivar_treatment")

@@ -8,7 +8,7 @@
 func_get_overlapping_analytes <- function(analytes_6sel_exp_sort, chromatogram_subset) {
   
   # create an index vector of SELECTED overlapping analytes ONLY!
-  analytes_index <- which( colnames(chromatogram_subset) %in% analytes_6sel_exp_sort$analyte)
+  analytes_index <- which( colnames(chromatogram_subset) %in% analytes_6sel_exp_sort$FK_Analyte)
   print(paste("number of SELECTED overlapping analytes:", length(analytes_index)))
   
   # create values matrix by partial matrix just with SELECTED overlapping analytes
