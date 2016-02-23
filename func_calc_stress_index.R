@@ -3,3 +3,10 @@ func_calc_stress_index <- function(yield_trial){
   stress_index <- 1- (starch_yield_mean$x[2] / starch_yield_mean$x[1])
   return(stress_index)
 }
+
+
+func_calc_stress_index_valdis <- function(yield_trial){
+  starch_yield_mean <- aggregate(yield_trial$starch_yield_g_per_plant, by=list(yield_trial$treatment_name), mean, na.rm=T)
+  stress_index <- 1- (starch_yield_mean$x[2] / starch_yield_mean$x[1])
+  return(stress_index)
+}
