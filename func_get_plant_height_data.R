@@ -1,7 +1,7 @@
 
 library(RMySQL)
 library(yaml)
-login = yaml.load_file("../libpurzel/login.yaml")
+login = yaml.load_file("../functions/login.yaml")
 phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
 
 func_get_plant_height_data <- function(){

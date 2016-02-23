@@ -11,7 +11,7 @@ func_get_bbch_data <- function(experiment_id = c('48656', '51790', '44443', '567
   
   library(RMySQL)
   library(yaml)
-  login = yaml.load_file("../libpurzel/login.yaml")
+  login = yaml.load_file("../functions/login.yaml")
   phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
   
   data <- dbGetQuery(phenotyper, paste("SELECT
@@ -132,7 +132,7 @@ func_get_bbch_data2 <- function(experiment_id = c('48656', '51790', '44443', '56
   
   library(RMySQL)
   library(yaml)
-  login = yaml.load_file("../libpurzel/login.yaml")
+  login = yaml.load_file("../functions/login.yaml")
   phenotyper = dbConnect(MySQL(), user=login$user, password=login$passwd, dbname=login$db, host=login$host)  
   
   data <- dbGetQuery(phenotyper, paste("SELECT 
