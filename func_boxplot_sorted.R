@@ -40,6 +40,24 @@ func_boxplot_sorted <- function(matrix, factor, analytes){
 }
 
 
+func_boxplot_sorted2 <- function(matrix, factor, analytes){
+  for (i in 1:ncol(matrix)){
+    
+    # subset of matrix per analyte
+    matrix_df <- data.frame(value = matrix[, i], genotype = factor)
+    
+    # sort genotypes according to median for boxplot
+    matrix_df_sorted <- with(matrix_df, reorder(genotype, value, median, na.rm = T))
+    
+    # sorted boxplot
+    boxplot(value ~ matrix_df_sorted, data = matrix_df, 
+            ylab = "log10 intensity", cex.lab = 1, cex.axis = 0.7, 
+            las = 2, main = analytes$Name[i],
+            col = rainbow(length(levels(factor))))
+  }
+}
+
+
 
 
 # aggregate median and sort

@@ -74,7 +74,8 @@ func_corto_heatmap <- function(corto_data, bin_names,
                                margins_values = c(8,50), 
                                lwid_input = c(1, 7),
                                lhei_input = c(1, 6),
-                               srtCol_value = 330){
+                               srtCol_value = 330,
+                               bin_codes){
   
   mat_data <- as.matrix(corto_data)
   
@@ -105,7 +106,7 @@ func_corto_heatmap <- function(corto_data, bin_names,
     heatmap.2(mat_data,
               colsep = 1:ncol(mat_data), 
               rowsep = 1:nrow(mat_data),
-              labRow = bin_names,
+              labRow = paste(bin_codes, "\t",bin_names),
               sepwidth = c(0.01, 0.05),
               sepcolor = "black",
               main = "",              # heat map title
@@ -130,7 +131,7 @@ func_corto_heatmap <- function(corto_data, bin_names,
     heatmap.2(mat_data,
               colsep = 1:ncol(mat_data), 
               rowsep = 1:nrow(mat_data),
-              labRow = bin_names,
+              labRow = paste(bin_codes, "\t", bin_names),
               sepwidth = c(0.01, 0.05),
               sepcolor = "black",
               main = "", # heat map title

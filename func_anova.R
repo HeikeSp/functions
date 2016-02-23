@@ -132,11 +132,17 @@ func_anova_2fac_ia <- function(normalized_values, trial_factors, factor1, factor
 
 # using 1 factor
 
-func_anova_1fac <- function(normalized_values, trial_factors, factor1, threshold, analyte_names=analytes_sel_exp_sort$Name){
+func_anova_1fac <- function(normalized_values, 
+                            trial_factors, 
+                            factor1, 
+                            threshold, 
+                            analyte_names = analytes_sel_exp_sort$Name){
+  
   res_anova <- matrix("NA", ncol=2, nrow=ncol(normalized_values))
   for (i in 1:ncol(normalized_values)){
     res_anova[i,] <- summary(aov(normalized_values[,i] ~ trial_factors[,factor1]))[[1]][["Pr(>F)"]] 
   }
+  
   res_anova <- res_anova[,-2]
   #colnames(res_anova) <- c(factor1)
   res_anova <- as.numeric(res_anova)
