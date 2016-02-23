@@ -4,6 +4,7 @@
 ##############
 
 library(RColorBrewer)
+library(gplots)
 
 #mypalette = palette( brewer.pal(7, "Dark2"))
 #pie(1:7,brewer.pal(7, "Dark2"), col=mypalette)
@@ -28,6 +29,9 @@ heike_palette_5 = c("#04A5CA", "#BF5300", "#7570B3", "#BB417F", "#66A61E")
 heike_palette_4 = c("#04A5CA", "#BF5300", "#7570B3", "#BB417F")
 # tuerkis,   orange,   lila,     pink
 #pie(rep(1,4),c("#04A5CA", "#BF5300", "#7570B3", "#BB417F"), col=heike_palette_4)
+
+heike_palette_3 = c("#04A5CA", "#BF5300", "#66A61E")
+# tuerkis,   orange,   gruen
 
 heike_palette_2 = c("#BF5300", "#265298")
 # blau rot
@@ -63,22 +67,20 @@ cols_cultivar2 <- c("#68C468", "#FFA54D","#3D3DF7", "#BA3E82") # 4 cultivars
 
 cols_cultivar_34 <- rainbow(34) # 34 cultivars
 
+cols_lines_63 <- rainbow(63) # 63 lines
+
 cols_cultivar_treatment <- c("forestgreen","#68C468", "darkorange3","#FFA54D", "darkblue","#3D3DF7", "deeppink4", "#BA3E82") # 4 cultivars / 2 treatments
 pie(rep(1,8), cols_cultivar_treatment, col=cols_cultivar_treatment, main="cols_cultivar_treatment")
 par(mfrow=c(1,1))
 
-# function to convert R color names to HEX code
-func_convert_color_name_to_hex <- function(color_name){
-  rgb(red = col2rgb(color_name)[1], green = col2rgb(color_name)[2], blue = col2rgb(color_name)[3], maxColorValue=255)
-}
-
-func_convert_color_name_to_hex("forestgreen")
+# convert R color names to HEX code
+col2hex("forestgreen")
 #228B22 --> hell: #68C468
-func_convert_color_name_to_hex("darkorange3")
+col2hex("darkorange3")
 #CD6600 --> hell: #FFA54D
-func_convert_color_name_to_hex("darkblue")
+col2hex("darkblue")
 #00008B --> hell: #3D3DF7
-func_convert_color_name_to_hex("deeppink4")
+col2hex("deeppink4")
 #8B0A50 --> hell: #BA3E82
 
 cols_treatment_tolerance <- brewer.pal(4, "Paired")
@@ -94,5 +96,12 @@ pie(rep(1,6), cols_trial, col=cols_trial, main="cols_trial")
 
 # colors for TROST project report
 cols_treatment_report <- c("#558ED5", "#77933C") # control/stress
-cols_genotype_report <- c("grey", "#BF5300", "#5778B9", "#00756D", "#F7B944") # control/stress
+cols_genotype_report <- c("grey", "#BF5300", "#5778B9", "#00756D", "#F7B944") 
 # grey  orange      blau      tuerkis    gelb
+
+cols_sp <- c("darkgrey", "#00A844", "#076993", "#EA7B00")
+# grey gruen blau orange --> parents, SP1, SP2, SP3
+
+cols_sp_treatment <- c("darkgrey", "lightgrey", "#00A844", "#9EEABD", "#076993", "#9CCEE4", "#EA7B00", "#FFD6AA")
+# grey/lightgrey  gruen/hellgruen blau/hellblau orange/hellorange
+
