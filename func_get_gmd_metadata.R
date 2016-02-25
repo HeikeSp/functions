@@ -240,23 +240,7 @@ func_get_gmd_metadata_3 <- function(experiment_id){
                                        select @MST_AnzahlKorrekt = sum(Msts) from @MstPerAnalyteCount 
                                        where analyte not in (select FK_Analyte from tf.InternalStandards where FK_TagList = @taglist and enabled = 1)
                                        --print @MST_AnzahlKorrekt
-                                       
-                                       DECLARE @DW TABLE(chromatogram uniqueidentifier PRIMARY KEY NOT NULL, value float);
-                                       INSERT @DW(chromatogram, value)
-                                       SELECT        v.FK_chromatogram as chromatogram, cast(i.value as float) as value
-                                       FROM          @c c
-                                       INNER JOIN (select distinct FK_chromatogram, FK_sample from Vial) v ON c.id = v.FK_chromatogram
-                                       INNER JOIN tf.SampleInfo i on v.FK_sample = i.FK_Sample
-                                       WHERE        (i.attribute = \'TROST/PhenoTyper CSchudoma DWcalc [mg]\')
-                                       
-                                       DECLARE @FW TABLE(chromatogram uniqueidentifier PRIMARY KEY NOT NULL, value float);
-                                       INSERT @FW(chromatogram, value)
-                                       SELECT        v.FK_chromatogram as chromatogram, cast(i.value as float) as value
-                                       FROM          @c c
-                                       INNER JOIN (select distinct FK_chromatogram, FK_sample from Vial) v ON c.id = v.FK_chromatogram
-                                       INNER JOIN tf.SampleInfo i on v.FK_sample = i.FK_Sample
-                                       WHERE        (i.attribute = \'TROST/PhenoTyper CSchudoma FreshWeight [mg]\')
-                                       
+
                                        DECLARE @IS TABLE(chromatogram uniqueidentifier PRIMARY KEY NOT NULL, value float);
                                        INSERT @IS(chromatogram, value)
                                        select i.FK_chromatogram, SUM(i.value) / (
@@ -284,11 +268,8 @@ func_get_gmd_metadata_3 <- function(experiment_id){
                                        AND a.FK_TagList = @taglist
                                        group by i.FK_chromatogram
                                        
-                                       SELECT c.id as chromatogram, [Is].value as [Is]
-                                       , aa.value as [AvgAnnotated], [Dw].value as [Dw], [Fw].value as [Fw]
+                                       SELECT c.id as chromatogram, [Is].value as [Is], aa.value as [AvgAnnotated]
                                        FROM @c AS c  
-                                       INNER JOIN @Dw as dw ON c.id = [Dw].chromatogram
-                                       INNER JOIN @Fw as fw ON c.id = [Fw].chromatogram
                                        INNER JOIN @Is as [is] ON c.id = [Is].chromatogram
                                        INNER JOIN @AvgAnnotated as aa ON c.id = aa.chromatogram
                                        ", sep=""))
@@ -298,8 +279,6 @@ func_get_gmd_metadata_3 <- function(experiment_id){
   # change class from factor to numeric
   gmd_meta$Is <- as.numeric(as.character(gmd_meta$Is))
   gmd_meta$AvgAnnotated <- as.numeric(as.character(gmd_meta$AvgAnnotated))
-  gmd_meta$Dw <- as.numeric(as.character(gmd_meta$Dw))
-  gmd_meta$Fw <- as.numeric(as.character(gmd_meta$Fw))
 
   return(gmd_meta)  
   
