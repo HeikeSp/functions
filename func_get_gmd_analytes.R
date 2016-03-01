@@ -15,6 +15,7 @@ func_get_all_gmd_analytes <- function(){
                                            FROM tf.MSTAnnotation 
                                            INNER JOIN GMD.tf.TagList ON GMD.tf.MSTAnnotation.FK_TagList = GMD.tf.TagList.id
                                            WHERE FK_Analyte is not NULL AND
+                                           tf.MSTAnnotation.[Is Quantitative Cluster] = 1 AND
                                            (GMD.tf.TagList.comment = \'trost\' or GMD.tf.TagList.name like \'%trost%\')"))
   
   colnames(gmd_analytes)[2] <- c("analyteID")
@@ -38,7 +39,8 @@ func_get_all_gmd_analytes <- function(){
 
 func_get_gmd_analytes <- function(experiment_id){
   gmd_analytes <- sqlQuery(dbhandle, paste("SELECT DISTINCT FK_Analyte, comment FROM GMD.tf.MSTAnnotation 
-                                           WHERE FK_Analyte is not NULL AND
+                                           WHERE FK_Analyte is not NULL AND 
+                                           tf.MSTAnnotation.[Is Quantitative Cluster] = 1 AND
                                            GMD.tf.MSTAnnotation.FK_TagList=", "\'", experiment_id, "\'", 
                                            sep="") )
   
