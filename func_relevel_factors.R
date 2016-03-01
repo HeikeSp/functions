@@ -12,6 +12,9 @@ func_relevel_factors <- function(trial_matrix,
                            genotype_levels_sorted=c("Alegria", "Milva", "Desiree", "Saturna"),
                            sample_time_levels=c("early/before","early/after", "late/before", "late/after")) {
   
+  # use only the subset of the factors matrix where the genotype_name is within the wanted genotypes
+  trial_matrix <- subset(trial_matrix, trial_matrix$genotype_name %in% genotype_levels)
+  
   # drop unused levels
   trial_matrix$treatment <- droplevels(trial_matrix$treatment)
   trial_matrix$genotype_name <- droplevels(trial_matrix$genotype_name)
@@ -25,11 +28,25 @@ func_relevel_factors <- function(trial_matrix,
   trial_matrix$sample_time <- factor(trial_matrix$sample_time, levels=sample_time_levels)
   
   # genotype_name needs to be renamed AND reordered!
-  # do the following only for experiments with four cultivars
-  #if(length(levels(trial_matrix$genotype_name)) == 4){
+  # do the following only for TROST experiments, with less than 35 genotypes
+  if(length(levels(trial_matrix$genotype_name)) < 35){
     levels(trial_matrix$genotype_name) <- genotype_levels
     trial_matrix$genotype_name <- factor(trial_matrix$genotype_name, levels=genotype_levels_sorted)
-  #} 
+  } 
+  
+  # add column for genotype class (parents, EA or AR) ONLY FOR VALDIS DATA (> 34 genotypes)
+  if(length(levels(trial_matrix$genotype_name)) > 34){
+    AxR <- which(grepl("^AR", trial_matrix$genotype_name))
+    ExA <- which(grepl("^EA", trial_matrix$genotype_name))
+    parents <- which(trial_matrix$genotype_name %in% c('Albatros', 'Ramses', 'Euroresa'))
+    
+    genotype_class <- as.character(trial_matrix$genotype_name)
+    genotype_class[AxR] <- "AR"
+    genotype_class[ExA] <- "EA"
+    genotype_class[parents] <- "parents"
+    trial_matrix$genotype_class <- factor(genotype_class)
+  } else
+    trial_matrix$genotype_class <- NA
   
   
   print("levels of treatment after relevel:")
