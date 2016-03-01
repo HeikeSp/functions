@@ -182,3 +182,23 @@ names_cultivars_34 <- c("Albatros", "Alegria", "Burana", "Desiree", "Eldena", "E
                      "Golf", "Jasia", "Jumbo", "Karlena", "Kiebitz", "Kolibri", "Kormoran", 
                      "Kuras", "Logo", "Maxi", "Maxilla", "Milva", "Pirol", "Power", "Priamos", 
                      "Ramses", "Saturna", "Sibu", "Sommergold", "Tomba", "Tomensa", "Ulme", "Verdi")
+
+names_lines_2014 <- c("Albatros","AR1","AR104","AR105","AR106","AR117","AR118","AR121","AR122","AR123",
+                      "AR125","AR126","AR129","AR133","AR139","AR140","AR141","AR143","AR144","AR149",
+                      "AR157","AR161","AR163","AR164","AR165","AR166","AR168","AR170","AR176","AR183",
+                      "AR184","AR185","AR188","AR191","AR196","AR197","AR199","AR20","AR200","AR201",
+                      "AR202","AR207","AR208","AR21","AR216","AR22","AR229","AR23","AR230","AR231",
+                      "AR234","AR235","AR241","AR245","AR247","AR249","AR254","AR256","AR258","AR260",
+                      "AR261","AR267","AR268","AR269","AR271","AR279","AR28","AR280","AR282","AR284",
+                      "AR285","AR288","AR293","AR296","AR298","AR299","AR41","AR43","AR48","AR52","AR55",
+                      "AR56","AR59","AR60","AR61","AR67","AR68","AR71","AR75","AR85","AR87","AR9","AR90",
+                      "AR95","AR98","AR99","EA111","EA112","EA113","EA121","EA125","EA127","EA130",
+                      "EA131","EA132","EA133","EA14","EA140","EA143","EA145","EA152","EA153","EA154",
+                      "EA155","EA159","EA160","EA162","EA165","EA167","EA168","EA17","EA170","EA172",
+                      "EA173","EA174","EA175","EA176","EA177","EA179","EA182","EA183","EA186","EA19",
+                      "EA192","EA193","EA196","EA198","EA2","EA20","EA200","EA201","EA202","EA207",
+                      "EA208","EA212","EA215","EA218","EA22","EA222","EA232","EA234","EA24","EA243",
+                      "EA252","EA257","EA263","EA264","EA266","EA269","EA273","EA279","EA28","EA280",
+                      "EA296","EA30","EA300","EA35","EA38","EA43","EA45","EA47","EA53","EA54","EA55",
+                      "EA57","EA59","EA6","EA62","EA64","EA66","EA7","EA71","EA72","EA74","EA75","EA78",
+                      "EA79","EA8","EA85","EA87","EA92","Euroresa","Ramses")

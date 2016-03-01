@@ -69,6 +69,8 @@ cols_cultivar_34 <- rainbow(34) # 34 cultivars
 
 cols_lines_63 <- rainbow(63) # 63 lines
 
+cols_lines_2014 <- rainbow(193) # 193 lines
+
 cols_cultivar_treatment <- c("forestgreen","#68C468", "darkorange3","#FFA54D", "darkblue","#3D3DF7", "deeppink4", "#BA3E82") # 4 cultivars / 2 treatments
 pie(rep(1,8), cols_cultivar_treatment, col=cols_cultivar_treatment, main="cols_cultivar_treatment")
 par(mfrow=c(1,1))
@@ -104,4 +106,6 @@ cols_sp <- c("darkgrey", "#00A844", "#076993", "#EA7B00")
 
 cols_sp_treatment <- c("darkgrey", "lightgrey", "#00A844", "#9EEABD", "#076993", "#9CCEE4", "#EA7B00", "#FFD6AA")
 # grey/lightgrey  gruen/hellgruen blau/hellblau orange/hellorange
+
+
 
