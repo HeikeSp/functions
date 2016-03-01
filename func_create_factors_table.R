@@ -5,10 +5,10 @@
 # Version: 0.1
 #===============================================================================
 
-# create factors table for treatment, cultivar, sample_time, 
+# create factors table for treatment, genotype, sample_time, 
 # Dw, Fw, Is, AvgAnnotated, AvgAnnotatedLog10, BatchID, SequenceID
 func_create_factors_table <- function(trial_matrix, sequence_ids, batch_ids, tolerance_factor) {
-  trial_factors <- cbind(trial_matrix[,c("chromatogram","treatment", "cultivar", "sample_time",
+  trial_factors <- cbind(trial_matrix[,c("chromatogram","treatment", "genotype_name", "sample_time",
                                          "sample_id", "Is", "AvgAnnotated", "Dw", "Fw")])
   trial_factors <- cbind(trial_factors, log10(trial_factors$Is), 
                          log10(trial_factors$AvgAnnotated), 
@@ -20,7 +20,7 @@ func_create_factors_table <- function(trial_matrix, sequence_ids, batch_ids, tol
 
 # for field trials: without tolerance factor!
 func_create_factors_table_field <- function(trial_matrix, sequence_ids, batch_ids) {
-  trial_factors <- cbind(trial_matrix[,c("chromatogram","treatment", "cultivar", "sample_time",
+  trial_factors <- cbind(trial_matrix[,c("chromatogram","treatment", "genotype_name", "sample_time",
                                          "sample_id", "Is", "AvgAnnotated", "Dw", "Fw")])
   trial_factors <- cbind(trial_factors, log10(trial_factors$Is), 
                          log10(trial_factors$AvgAnnotated), 

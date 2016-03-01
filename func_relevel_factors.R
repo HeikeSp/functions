@@ -1,20 +1,20 @@
 #===============================================================================
-# Name   : relevel factors (treatment, cultivar, sample_time)
+# Name   : relevel factors (treatment, genotype_name, sample_time)
 # Author : Heike Sprenger
 # Date   : 2015-11-10
 # Version: 0.2
 #===============================================================================
 
-# Relevel treatment, cultivar and sample_time factors
+# Relevel treatment, genotype_name and sample_time factors
 func_relevel_factors <- function(trial_matrix,
                            treatment_levels=c("control", "drought stress"),
-                           cultivar_levels=c("Alegria", "Desiree", "Milva", "Saturna"),
-                           cultivar_levels_sorted=c("Alegria", "Milva", "Desiree", "Saturna"),
+                           genotype_levels=c("Alegria", "Desiree", "Milva", "Saturna"),
+                           genotype_levels_sorted=c("Alegria", "Milva", "Desiree", "Saturna"),
                            sample_time_levels=c("early/before","early/after", "late/before", "late/after")) {
   
   # drop unused levels
   trial_matrix$treatment <- droplevels(trial_matrix$treatment)
-  trial_matrix$cultivar <- droplevels(trial_matrix$cultivar)
+  trial_matrix$genotype_name <- droplevels(trial_matrix$genotype_name)
   trial_matrix$sample_time <- droplevels(trial_matrix$sample_time)
   
   # rename levels of treatment factor
@@ -24,18 +24,18 @@ func_relevel_factors <- function(trial_matrix,
   # sample time need to be reordered, not renamed
   trial_matrix$sample_time <- factor(trial_matrix$sample_time, levels=sample_time_levels)
   
-  # cultivar needs to be renamed AND reordered!
+  # genotype_name needs to be renamed AND reordered!
   # do the following only for experiments with four cultivars
-  #if(length(levels(trial_matrix$cultivar)) == 4){
-    levels(trial_matrix$cultivar) <- cultivar_levels
-    trial_matrix$cultivar <- factor(trial_matrix$cultivar, levels=cultivar_levels_sorted)
+  #if(length(levels(trial_matrix$genotype_name)) == 4){
+    levels(trial_matrix$genotype_name) <- genotype_levels
+    trial_matrix$genotype_name <- factor(trial_matrix$genotype_name, levels=genotype_levels_sorted)
   #} 
   
   
   print("levels of treatment after relevel:")
   print(levels(trial_matrix$treatment))
-  print("levels of cultivar after relevel:")
-  print(levels(trial_matrix$cultivar))
+  print("levels of genotypes after relevel:")
+  print(levels(trial_matrix$genotype_name))
   print("levels of sample_time after relevel:")
   print(levels(trial_matrix$sample_time))
   
