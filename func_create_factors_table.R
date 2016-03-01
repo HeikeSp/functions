@@ -8,7 +8,7 @@
 # create factors table for treatment, genotype, sample_time, 
 # Dw, Fw, Is, AvgAnnotated, AvgAnnotatedLog10, BatchID, SequenceID
 func_create_factors_table <- function(trial_matrix, sequence_ids, batch_ids, tolerance_factor) {
-  trial_factors <- cbind(trial_matrix[,c("chromatogram","treatment", "genotype_name", "sample_time",
+  trial_factors <- cbind(trial_matrix[,c("chromatogram","treatment", "genotype_name", "genotype_class", "sample_time",
                                          "sample_id", "Is", "AvgAnnotated", "Dw", "Fw")])
   trial_factors <- cbind(trial_factors, log10(trial_factors$Is), 
                          log10(trial_factors$AvgAnnotated), 
