@@ -12,8 +12,10 @@ func_relevel_factors <- function(trial_matrix,
                            genotype_levels_sorted=c("Alegria", "Milva", "Desiree", "Saturna"),
                            sample_time_levels=c("early/before","early/after", "late/before", "late/after")) {
   
-  # use only the subset of the factors matrix where the genotype_name is within the wanted genotypes
-  trial_matrix <- subset(trial_matrix, trial_matrix$genotype_name %in% genotype_levels)
+  # VALDIS: use only the subset of the factors matrix where the genotype_name is within the wanted genotypes
+  if(length(genotype_levels) > 34){
+    trial_matrix <- subset(trial_matrix, trial_matrix$genotype_name %in% genotype_levels)
+  }
   
   # drop unused levels
   trial_matrix$treatment <- droplevels(trial_matrix$treatment)
@@ -46,7 +48,7 @@ func_relevel_factors <- function(trial_matrix,
     genotype_class[parents] <- "parents"
     trial_matrix$genotype_class <- factor(genotype_class)
   } else
-    trial_matrix$genotype_class <- NA
+    trial_matrix$genotype_class <- trial_matrix$genotype_name
   
   
   print("levels of treatment after relevel:")
