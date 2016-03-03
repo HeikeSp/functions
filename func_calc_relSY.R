@@ -1,11 +1,4 @@
-func_calc_relSY <- function(yield_trial, cultivar_names = c("Albatros","Alegria","Burana","Desiree",
-                                                         "Eldena","Eurobravo","Euroflora","Euronova",
-                                                         "Euroresa","Eurostarch","Eurotango","Golf",
-                                                         "Jasia","Jumbo","Karlena","Kiebitz",
-                                                         "Kolibri","Kormoran","Kuras","Logo","Maxi",
-                                                         "Maxilla","Milva","Pirol","Power", "Priamos",
-                                                         "Ramses","Saturna","Sibu","Sommergold","Tomba",
-                                                         "Tomensa","Ulme","Verdi")){
+func_calc_relSY <- function(yield_trial, cultivar_names = names_cultivars_34){
   control <- subset(yield_trial, yield_trial$treatment=="control")
   control_mean <- aggregate(control$starch_yield_kg_per_plant, by=list(control$cultivar), mean, na.rm=T)
   colnames(control_mean) <- c("cultivar", "starch_yield_kg_per_plant")
