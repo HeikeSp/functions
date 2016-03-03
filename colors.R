@@ -67,7 +67,8 @@ cols_cultivar2 <- c("#68C468", "#FFA54D","#3D3DF7", "#BA3E82") # 4 cultivars
 
 cols_cultivar_34 <- rainbow(34) # 34 cultivars
 
-cols_lines_63 <- rainbow(63) # 63 lines
+cols_lines_63 <- rainbow(63) # 63 all lines in 2015
+cols_lines_60 <- rainbow(60) # 60 common lines in 2015
 
 cols_lines_2014 <- rainbow(193) # 193 lines
 cols_crossing <- brewer.pal(3, "Dark2")  # AR, EA, parents
@@ -100,7 +101,8 @@ cols_trial <- c (brewer.pal(n = 6, name = "Greens")[4:6], brewer.pal(n = 6, name
 # colors for TROST project report
 cols_treatment_report <- c("#558ED5", "#77933C") # control/stress
 cols_genotype_report <- c("grey", "#BF5300", "#5778B9", "#00756D", "#F7B944") 
-# grey  orange      blau      tuerkis    gelb
+# grey      orange    blau      tuerkis   gelb
+# Albatros  AxR       Euroresa  ExA       Ramses
 
 cols_sp <- c("darkgrey", "#00A844", "#076993", "#EA7B00")
 # grey gruen blau orange --> parents, SP1, SP2, SP3

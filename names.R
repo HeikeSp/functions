@@ -202,3 +202,19 @@ names_lines_2014 <- c("Albatros","AR1","AR104","AR105","AR106","AR117","AR118","
                       "EA296","EA30","EA300","EA35","EA38","EA43","EA45","EA47","EA53","EA54","EA55",
                       "EA57","EA59","EA6","EA62","EA64","EA66","EA7","EA71","EA72","EA74","EA75","EA78",
                       "EA79","EA8","EA85","EA87","EA92","Euroresa","Ramses")
+
+# 60 common lines in 2015
+names_common_lines_2015 <- c("Albatros","AR1","AR106","AR121","AR133","AR157","AR163","AR185","AR196",
+                             "AR197","AR200","AR201","AR202","AR21","AR23","AR241","AR245","AR247","AR254",
+                             "AR256","AR269","AR28","AR282","AR285","AR293","AR55","AR56","AR59","AR67",
+                             "EA111","EA112","EA145","EA154","EA162","EA165","EA172","EA173","EA19","EA2",
+                             "EA200","EA208","EA22","EA252","EA264","EA269","EA273","EA279","EA28","EA280",
+                             "EA54","EA55","EA62","EA7","EA71","EA74","EA8","EA87","EA92","Euroresa","Ramses")
+
+# all 63 lines in 2015
+names_all_lines_2015 <- c("Albatros","AR1","AR106","AR121","AR133","AR157","AR163","AR183","AR185","AR196",
+                          "AR197","AR200","AR201","AR202","AR21","AR23","AR241","AR245","AR247","AR254",
+                          "AR256","AR269","AR28","AR282","AR285","AR293","AR55","AR56","AR59","AR67","EA111",
+                          "EA112","EA131","EA145","EA154","EA162","EA165","EA172","EA173","EA174","EA19",
+                          "EA2","EA200","EA208","EA22","EA252","EA264","EA269","EA273","EA279","EA28","EA280",
+                          "EA54","EA55","EA62","EA7","EA71","EA74","EA8","EA87","EA92","Euroresa","Ramses")
