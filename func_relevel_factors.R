@@ -40,12 +40,14 @@ func_relevel_factors <- function(trial_matrix,
   if(length(levels(trial_matrix$genotype_name)) > 34){
     AxR <- which(grepl("^AR", trial_matrix$genotype_name))
     ExA <- which(grepl("^EA", trial_matrix$genotype_name))
-    parents <- which(trial_matrix$genotype_name %in% c('Albatros', 'Ramses', 'Euroresa'))
+    #Albatros <- which(trial_matrix$genotype_name == 'Albatros')
+    #Euroresa <- which(trial_matrix$genotype_name  == 'Euroresa')
+    #Ramses <- which(trial_matrix$genotype_name == 'Ramses')
     
     genotype_class <- as.character(trial_matrix$genotype_name)
-    genotype_class[AxR] <- "AR"
-    genotype_class[ExA] <- "EA"
-    genotype_class[parents] <- "parents"
+    genotype_class[AxR] <- "AxR"
+    genotype_class[ExA] <- "ExA"
+    #genotype_class[parents] <- "parents"
     trial_matrix$genotype_class <- factor(genotype_class)
   } else
     trial_matrix$genotype_class <- trial_matrix$genotype_name
