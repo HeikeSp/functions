@@ -6,7 +6,10 @@ func_calc_ssi <- function(yield_trial, plant_lines, si_value, keep_replicates = 
   relSY <- func_calc_relSY_valdis(yield_trial, plant_lines)
   
   # calculate median of relSY per line
-  relSY_median <- func_calc_relSY_median(relSY)
+  # relSY_median <- func_calc_relSY_median(relSY)
+  
+  # calculate mean of relSY per line
+  relSY_mean <- func_calc_relSY_mean(relSY)
   
   # calculate 
   ssi <- list()
@@ -14,7 +17,7 @@ func_calc_ssi <- function(yield_trial, plant_lines, si_value, keep_replicates = 
     if(keep_replicates == "yes"){
       ssi[[plant_line]] <- (1 - unique(relSY[[plant_line]]) ) / si_value # use all replicates per line
     } else{
-      ssi[[plant_line]] <- (1 - unique(relSY_median[[plant_line]]) ) / si_value # use median per line
+      ssi[[plant_line]] <- (1 - unique(relSY_mean[[plant_line]]) ) / si_value # use mean per line
     }
   }
   
