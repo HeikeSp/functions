@@ -107,6 +107,9 @@ cols_genotype_report <- c("grey", "#BF5300", "#5778B9", "#00756D", "#F7B944")
 cols_sp <- c("darkgrey", "#00A844", "#076993", "#EA7B00")
 # grey gruen blau orange --> parents, SP1, SP2, SP3
 
+# without parents 
+cols_sp_no_parents <- c("#00A844", "#076993", "#EA7B00")
+
 cols_sp_treatment <- c("darkgrey", "lightgrey", "#00A844", "#9EEABD", "#076993", "#9CCEE4", "#EA7B00", "#FFD6AA")
 # grey/lightgrey  gruen/hellgruen blau/hellblau orange/hellorange
 
