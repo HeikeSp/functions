@@ -274,11 +274,11 @@ func_get_gmd_metadata_3 <- function(experiment_id){
                                        INNER JOIN @AvgAnnotated as aa ON c.id = aa.chromatogram
                                        ", sep=""))
   # order table
-  gmd_meta <- gmd_meta[order(gmd_meta$chromatogram),]
+  #gmd_meta <- gmd_meta[order(gmd_meta$chromatogram),]
   
   # change class from factor to numeric
-  gmd_meta$Is <- as.numeric(as.character(gmd_meta$Is))
-  gmd_meta$AvgAnnotated <- as.numeric(as.character(gmd_meta$AvgAnnotated))
+  #gmd_meta$Is <- as.numeric(as.character(gmd_meta$Is))
+  #gmd_meta$AvgAnnotated <- as.numeric(as.character(gmd_meta$AvgAnnotated))
 
   return(gmd_meta)  
   

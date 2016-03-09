@@ -14,7 +14,7 @@ func_create_factors_table <- function(trial_matrix, sequence_ids, batch_ids, tol
                          log10(trial_factors$AvgAnnotated), 
                          sequence_ids, batch_ids, 
                          tolerance_factor)
-  colnames(trial_factors)[10:14] <- c("log10_Is", "log10_AvgAnnotated", "SequenceID", "BatchID", "tolerance")
+  colnames(trial_factors)[11:15] <- c("log10_Is", "log10_AvgAnnotated", "SequenceID", "BatchID", "tolerance")
   return(trial_factors)
 }
 
