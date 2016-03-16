@@ -1,4 +1,6 @@
 
+names_sample_time <- c("early/before", "early/after", "late/before", "late/after")
+
 names_treatment_sample_time <- c("control \n early", 
                                  "drought stress \n early", 
                                  "control \n late", 
