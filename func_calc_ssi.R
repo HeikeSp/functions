@@ -5,13 +5,13 @@ func_calc_ssi <- function(yield_trial, plant_lines, si_value, keep_replicates = 
   # calculate relative Starch yield (relSY) per line for each replicate
   relSY <- func_calc_relSY_valdis(yield_trial, plant_lines)
   
-  # calculate median of relSY per line
+  # calculate MEDIAN of relSY per line
   # relSY_median <- func_calc_relSY_median(relSY)
   
-  # calculate mean of relSY per line
+  # calculate MEAN of relSY per line
   relSY_mean <- func_calc_relSY_mean(relSY)
   
-  # calculate 
+  # calculate SSI
   ssi <- list()
   for (plant_line in plant_lines){
     if(keep_replicates == "yes"){
