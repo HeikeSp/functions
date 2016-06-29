@@ -67,6 +67,13 @@ cols_cultivar2 <- c("#68C468", "#FFA54D","#3D3DF7", "#BA3E82") # 4 cultivars
 
 cols_cultivar_34 <- rainbow(34) # 34 cultivars
 
+# 34 distinct colors from: http://tools.medialab.sciences-po.fr/iwanthue/
+cols_distinct_34 <- c("#D34428", "#7E3E24", "#DD8935", "#A47C3B", "#CFB031", "#7F7563", "#545921", 
+                      "#A1AD4D", "#88BE30", "#AAAF7E", "#3F7D29", "#46CC33", "#59C763", "#61AC72", 
+                      "#3B604A", "#5AC7AB", "#74AAAD", "#66ADD8", "#415D77", "#728CDA", "#AF9CBB", 
+                      "#584D8D", "#7C63D5", "#C67FD4", "#D150E1", "#6A4D57", "#8B357C", "#DA44B4", 
+                      "#D881AA", "#D54185", "#8E3851", "#CFA295", "#D53F5A", "#D37765")
+
 cols_lines_63 <- rainbow(63) # 63 all lines in 2015
 cols_lines_60 <- rainbow(60) # 60 common lines in 2015
 
@@ -113,5 +120,6 @@ cols_sp_no_parents <- c("#00A844", "#076993", "#EA7B00")
 cols_sp_treatment <- c("darkgrey", "lightgrey", "#00A844", "#9EEABD", "#076993", "#9CCEE4", "#EA7B00", "#FFD6AA")
 # grey/lightgrey  gruen/hellgruen blau/hellblau orange/hellorange
 
+cols_sp_par_treatment <- c("darkgrey", "lightgrey", "#00A844", "#9EEABD", "#076993", "#9CCEE4", "#EA7B00", "#FFD6AA")
 
 

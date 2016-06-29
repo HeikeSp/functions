@@ -185,6 +185,13 @@ names_cultivars_34 <- c("Albatros", "Alegria", "Burana", "Desiree", "Eldena", "E
                      "Kuras", "Logo", "Maxi", "Maxilla", "Milva", "Pirol", "Power", "Priamos", 
                      "Ramses", "Saturna", "Sibu", "Sommergold", "Tomba", "Tomensa", "Ulme", "Verdi")
 
+# without Kiebitz, Kolibri, Kormoran
+names_cultivars_31 <- c("Albatros", "Alegria", "Burana", "Desiree", "Eldena", "Eurobravo", 
+                        "Euroflora", "Euronova", "Euroresa", "Eurostarch",  "Eurotango", 
+                        "Golf", "Jasia", "Jumbo", "Karlena", 
+                        "Kuras", "Logo", "Maxi", "Maxilla", "Milva", "Pirol", "Power", "Priamos", 
+                        "Ramses", "Saturna", "Sibu", "Sommergold", "Tomba", "Tomensa", "Ulme", "Verdi")
+
 names_lines_2014 <- c("Albatros","AR1","AR104","AR105","AR106","AR117","AR118","AR121","AR122","AR123",
                       "AR125","AR126","AR129","AR133","AR139","AR140","AR141","AR143","AR144","AR149",
                       "AR157","AR161","AR163","AR164","AR165","AR166","AR168","AR170","AR176","AR183",
