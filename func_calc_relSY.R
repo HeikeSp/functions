@@ -38,7 +38,7 @@ func_calc_relSY_valdis <- function(yield_trial, plant_lines){
   for (plant_line in plant_lines){
     control_mean_plant_lines[[plant_line]] <- subset(control_mean$starch_yield_g_per_plant, 
                                                       control_mean$plant_line == plant_line)
-  }
+    }
 
   # subset of stress values
   stress <- subset(yield_trial, yield_trial$treatment_name=="drought stress")
@@ -48,7 +48,7 @@ func_calc_relSY_valdis <- function(yield_trial, plant_lines){
   for (plant_line in plant_lines){
     stress_plant_lines[[plant_line]] <- c(subset(stress$starch_yield_g_per_plant, 
                                                   stress$alias == plant_line))
-  }
+    }
   
   # calculate ratio of stress/control
   relSY <- list()
