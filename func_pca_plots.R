@@ -47,7 +47,7 @@ func_pca_plot <- function(pca_res, dim1, dim2, factors, color_factor, symbols=19
 
 func_pca_plot_sym <- function(pca_res, dim1, dim2, factors, color_factor, symbols=c(17,19), 
                               symbol_factor, symbol_size=1.5, pos1, leg1, pos2, leg2, maintext="",
-                              legend.text1, xmin=min(pca_res@scores[,dim1], na.rm=T), xmax=max(pca_res@scores[,dim1], na.rm=T),
+                              legend.text1, legend.text2, xmin=min(pca_res@scores[,dim1], na.rm=T), xmax=max(pca_res@scores[,dim1], na.rm=T),
                               ymin=min(pca_res@scores[,dim2], na.rm=T), ymax=max(pca_res@scores[,dim2], na.rm=T))
 {
   plot(pca_res@scores[,dim1], pca_res@scores[,dim2], 
@@ -70,5 +70,6 @@ func_pca_plot_sym <- function(pca_res, dim1, dim2, factors, color_factor, symbol
   
   legend(pos2, cex=leg2, bty="n",
          levels(factors[,symbol_factor]), 
-         pch=symbols)
+         pch=symbols,
+         legend=legend.text2)
 }
