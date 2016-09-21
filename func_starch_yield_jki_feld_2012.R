@@ -10,10 +10,10 @@ yield_trial$cultivar <- droplevels(yield_trial$cultivar)
 yield_trial$treatment <- droplevels(yield_trial$treatment)
 # rename levels of factors
 levels(yield_trial$treatment) <- c("control", "drought stress")
-levels(yield_trial$cultivar) <- c("Albatros","Alegria","Burana","Desiree","Eldena","Eurobravo","Euroflora","Euronova",
-                                       "Euroresa","Eurostarch","Eurotango","Golf","Jasia","Jumbo","Karlena","Kiebitz",
-                                       "Kolibri","Kormoran","Kuras","Logo","Maxi","Maxilla","Milva","Pirol","Power",
-                                       "Priamos","Ramses","Saturna","Sibu","Sommergold","Tomba","Tomensa","Ulme","Verdi")
+# levels(yield_trial$cultivar) <- c("Albatros","Alegria","Burana","Desiree","Eldena","Eurobravo","Euroflora","Euronova",
+#                                        "Euroresa","Eurostarch","Eurotango","Golf","Jasia","Jumbo","Karlena","Kiebitz",
+#                                        "Kolibri","Kormoran","Kuras","Logo","Maxi","Maxilla","Milva","Pirol","Power",
+#                                        "Priamos","Ramses","Saturna","Sibu","Sommergold","Tomba","Tomensa","Ulme","Verdi")
 
 wrong_entries <- which(yield_trial$measurement_date == "2013-09-19")
 yield_trial <- yield_trial[-wrong_entries,]

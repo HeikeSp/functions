@@ -13,7 +13,7 @@ levels(yield_trial$treatment) <- c("control", "drought stress")
 #levels(yield_trial$cultivar) <- c("Desiree", "Alegria", "Milva", "Saturna")
 
 
-# get subset for tuber_FW, tubercore_FW and tubercore_DW
+# get subset for tuber_FW (in g), tubercore_FW and tubercore_DW
 tuber_FW <- subset(yield_trial, 
                               yield_trial$attribute == "absolutes Frischgewicht" & 
                                 yield_trial$entity_name=="Knolle")
@@ -53,16 +53,17 @@ starch_yield_g_per_plant <- tuber_FW_kg * starch_g_per_kg
 starch_yield_kg_per_plant <- starch_yield_g_per_plant/1000
 
 # generate complete tuber data
-tuber_data <- cbind(tuber_FW[,c(1:7,13)], 
-                               tuber_FW_kg,
-                               tubercore_FW$number, 
-                               tubercore_DW$number, 
-                               drymatter2,
-                               starch_g_per_kg,
-                               starch_yield_kg_per_plant,
-                               starch_yield_g_per_plant)
+tuber_data <- data.frame(tuber_FW[,1:6], 
+                         #tuber_FW$number,
+                         tuber_FW_kg,
+                         #tubercore_FW$number, 
+                         #tubercore_DW$number, 
+                         #drymatter2,
+                         starch_g_per_kg,
+                         starch_yield_kg_per_plant,
+                         starch_yield_g_per_plant)
 
-colnames(tuber_data)[8:15] <- c("tuber_FW_g", "tuber_FW_kg", "tubercore_FW_g", "tubercore_DW_g", "drymatter_percent", "starch_g_per_kg", "starch_yield_kg_per_plant", "starch_yield_g_per_plant")
+# colnames(tuber_data)[6:13] <- c("tuber_FW_g", "tuber_FW_kg", "tubercore_FW_g", "tubercore_DW_g", "drymatter_percent", "starch_g_per_kg", "starch_yield_kg_per_plant", "starch_yield_g_per_plant")
 
 return(tuber_data)
 
