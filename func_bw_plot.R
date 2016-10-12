@@ -64,15 +64,21 @@ new.par.ylab.text$cex= 1.3 # font size x-axis label default 1
 new.par.strip.text=trellis.par.get("par.strip.text")
 new.par.strip.text$cex =1.2
 
-trellis.par.set(box.dot = new.dot, 
-                box.rectangle = new.rectangle, 
-                box.umbrella = new.umbrella, 
-                plot.symbol = new.symbol, 
-                strip.background = new.strip.background, 
-                strip.shingle = new.strip.shingle,
-                axis.text = new.axis.text, 
-                par.main.text = new.par.main.text, 
-                par.xlab.text = new.par.xlab.text, 
-                par.ylab.text = new.par.ylab.text, 
-                par.strip.text = new.par.strip.text)
+original_theme <- trellis.par.get()
+new_theme <- original_theme
+
+new_theme$box.dot = new.dot
+new_theme$box.rectangle = new.rectangle
+new_theme$box.umbrella = new.umbrella
+new_theme$plot.symbol = new.symbol
+new_theme$strip.background = new.strip.background
+new_theme$strip.shingle = new.strip.shingle
+new_theme$axis.text = new.axis.text
+new_theme$par.main.text = new.par.main.text
+new_theme$par.xlab.text = new.par.xlab.text
+new_theme$par.ylab.text = new.par.ylab.text
+new_theme$par.strip.text = new.par.strip.text
+
+
+# trellis.par.set(new_theme)
 
