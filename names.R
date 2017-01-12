@@ -192,6 +192,7 @@ names_cultivars_31 <- c("Albatros", "Alegria", "Burana", "Desiree", "Eldena", "E
                         "Kuras", "Logo", "Maxi", "Maxilla", "Milva", "Pirol", "Power", "Priamos", 
                         "Ramses", "Saturna", "Sibu", "Sommergold", "Tomba", "Tomensa", "Ulme", "Verdi")
 
+# 193 common lines in 2014, including parents
 names_lines_2014 <- c("Albatros","AR1","AR104","AR105","AR106","AR117","AR118","AR121","AR122","AR123",
                       "AR125","AR126","AR129","AR133","AR139","AR140","AR141","AR143","AR144","AR149",
                       "AR157","AR161","AR163","AR164","AR165","AR166","AR168","AR170","AR176","AR183",
@@ -212,7 +213,7 @@ names_lines_2014 <- c("Albatros","AR1","AR104","AR105","AR106","AR117","AR118","
                       "EA57","EA59","EA6","EA62","EA64","EA66","EA7","EA71","EA72","EA74","EA75","EA78",
                       "EA79","EA8","EA85","EA87","EA92","Euroresa","Ramses")
 
-# 60 common lines in 2015
+# 60 common lines in 2015, including parents
 names_common_lines_2015 <- c("Albatros","AR1","AR106","AR121","AR133","AR157","AR163","AR185","AR196",
                              "AR197","AR200","AR201","AR202","AR21","AR23","AR241","AR245","AR247","AR254",
                              "AR256","AR269","AR28","AR282","AR285","AR293","AR55","AR56","AR59","AR67",
@@ -220,7 +221,7 @@ names_common_lines_2015 <- c("Albatros","AR1","AR106","AR121","AR133","AR157","A
                              "EA200","EA208","EA22","EA252","EA264","EA269","EA273","EA279","EA28","EA280",
                              "EA54","EA55","EA62","EA7","EA71","EA74","EA8","EA87","EA92","Euroresa","Ramses")
 
-# all 63 lines in 2015
+# all 63 lines in 2015, including parents and AR183, EA131, EA174
 names_all_lines_2015 <- c("Albatros","AR1","AR106","AR121","AR133","AR157","AR163","AR183","AR185","AR196",
                           "AR197","AR200","AR201","AR202","AR21","AR23","AR241","AR245","AR247","AR254",
                           "AR256","AR269","AR28","AR282","AR285","AR293","AR55","AR56","AR59","AR67","EA111",

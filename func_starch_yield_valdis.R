@@ -21,17 +21,19 @@ func_starch_yield_feld <- function(yield_data, culture_id, num_per_plot){
   
   # # calculate starch yield in g/plot
   starch_yield_g_per_plot <- tuber_FW_kg$number * starch_g_per_kg$number
+  tuber_FW_kg_per_plant <- tuber_FW_kg$number/num_per_plot
   starch_yield_g_per_plant2 <- starch_yield_g_per_plot/num_per_plot
   
   # generate complete tuber data
   # 1: alias, 2: culture, 3: plant_id, 4: line_id, 5: name, 6: treatment, 7: treatment_name
   # 11: population, 12: SP1, 13: SP2, 14: SP3, 15: SP, 10: number
   tuber_data <- cbind(tuber_FW_kg[ ,c(1:7,11:15,10)], 
+                      tuber_FW_kg_per_plant,
                       starch_g_per_kg$number,
                       starch_yield_g_per_plant2,
                       starch_yield_g_per_plot)
   
-  colnames(tuber_data)[13:16] <- c("tuber_FW_kg_per_plot", "starch_g_per_kg",
+  colnames(tuber_data)[13:17] <- c("tuber_FW_kg_per_plot", "tuber_FW_kg_per_plant","starch_g_per_kg",
                                   "starch_yield_g_per_plant", "starch_yield_g_per_plot")
   
   return(tuber_data)

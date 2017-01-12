@@ -17,14 +17,14 @@ func_print_na_statistics <- function(matrix, analytes_name = analytes_6sel_exp_s
   high_na_analytes <- which(apply(matrix, 2, function(x) sum(is.na(x))) > (nrow(matrix) * 0.4) )
   print(paste("num of analytes with more than 40% NAs: ", length(high_na_analytes)))
   print("num of NAs for problematic analytes:")
-  if(length(high_na_analytes == 1)){
+  if(length(high_na_analytes) == 1){
     print(data.frame(as.character(analytes_name[high_na_analytes]), 
                 sum(is.na(matrix[,high_na_analytes])) ))
     }
 
   else{
-    print(data.frame(as.character(analytes_name[high_na_analytes]), 
-                apply(matrix[,high_na_analytes], 2, function(x) sum(is.na(x)) )))
+    print(data.frame("analyte_name" = as.character(analytes_name[high_na_analytes]), 
+                     "number_of_NAs" = as.numeric(apply(matrix[,high_na_analytes], 2, function(x) sum(is.na(x)) ))))
   }
   # return(high_na_analytes) # gives only colnumber of analyte
 }
