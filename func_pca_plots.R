@@ -37,9 +37,10 @@ func_pca_plot <- function(pca_res, dim1, dim2, factors, color_factor, symbols = 
        main = maintext, 
        cex = symbol_size,
        cex.lab=1.4, 
-       cex.axis=1.2,
+       #cex.axis=1.4, # only for publication
        xlim=c(xmin, xmax),
-       ylim=c(ymin, ymax)
+       ylim=c(ymin, ymax)#,
+       #yaxp = c(-3,5,8), xaxp = c(-8,8,8) # only for publication
   )
   
   legend(pos1, cex=leg1, bty="n",

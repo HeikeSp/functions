@@ -45,8 +45,8 @@ func_deseq2_pipeline <- function(counts, samplelist, design_value = "without bat
   # tail( resSig_E3C[ order( resSig_E3C$log2FoldChange ), ] )
 }
 
-test_res <- func_deseq2_pipeline(counts_keep, samplelist_ordered, design_value = "without batch")
+# test_res <- func_deseq2_pipeline(counts_keep, samplelist_ordered, design_value = "without batch")
 # design(test_res)
 
-deseq_res_control <- func_deseq2_pipeline(counts_C, samplelist_C, design_value = "without batch")
-deseq_res_drought <- func_deseq2_pipeline(counts_D, samplelist_D, design_value = "without batch")
+# deseq_res_control <- func_deseq2_pipeline(counts_C, samplelist_C, design_value = "without batch")
+# deseq_res_drought <- func_deseq2_pipeline(counts_D, samplelist_D, design_value = "without batch")
