@@ -74,6 +74,7 @@ install.packages("shinyjs", "devtools", "curl")
 install.packages("FactoMineR", "Factoshiny")
 install.packages("ff")
 install.packages("doMC", repos="http://R-Forge.R-project.org")
+install.packages("pheatmap")
 
 # Install Bioconductor packages
 source("http://bioconductor.org/biocLite.R")

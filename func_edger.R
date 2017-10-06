@@ -2,7 +2,8 @@
 func_edger_pipeline <- function(counts_mat = counts_keep2, 
                                 info_mat = metadata_sel2, 
                                 group_name = "Treatment",
-                                group1 = Treatment, group2 = Batch2,
+                                group1 = Treatment, 
+                                group2 = Batch2,
                                 contrasts_mat = my.contrasts2,
                                 FDR_threshold = 0.05){
   # create DGEList object
@@ -13,7 +14,7 @@ func_edger_pipeline <- function(counts_mat = counts_keep2,
   y = calcNormFactors(y)
   
   # multidimensional scaling plot
-  plotMDS(y, labels = y$samples$group, cex=0.5)
+  #plotMDS(y, labels = y$samples$group, cex=0.5)
   
   # construct the design matrix 
   design <- model.matrix(~ 0 + group1 + group2)
@@ -25,7 +26,7 @@ func_edger_pipeline <- function(counts_mat = counts_keep2,
   y = estimateDisp(y, design, robust=TRUE)
 
   # Plot the tagwise BCV against its abundance (in log2 counts per million logCPM)
-  plotBCV(y, cex=0.4)
+  #plotBCV(y, cex=0.4)
   
   # detecting outliers
   # outliers with a prior.df value < 1
@@ -67,11 +68,13 @@ func_edger_pipeline <- function(counts_mat = counts_keep2,
   return(res_list)
 }
 
-
+# STEP 1
+# create DGEList, normalization, and construct design matrix
 func_edger_step1 <- function(counts_mat = counts_keep2, 
                              info_mat = metadata_sel2, 
                              group_name = "Treatment",
-                             group1 = Treatment, group2 = Batch2){
+                             group1 = Treatment, 
+                             group2 = Batch2){
   # create DGEList object
   y <- DGEList(counts = counts_mat, 
                group = info_mat[, group_name])
@@ -80,7 +83,7 @@ func_edger_step1 <- function(counts_mat = counts_keep2,
   y = calcNormFactors(y)
   
   # multidimensional scaling plot
-  plotMDS(y, labels = y$samples$group, cex=0.5)
+  #plotMDS(y, labels = y$samples$group, cex=0.5)
   
   # construct the design matrix 
   if(is.null(group2)){
@@ -97,7 +100,7 @@ func_edger_step1 <- function(counts_mat = counts_keep2,
   y = estimateDisp(y, design, robust=TRUE)
   
   # Plot the tagwise BCV against its abundance (in log2 counts per million logCPM)
-  plotBCV(y, cex=0.4)
+  #plotBCV(y, cex=0.4)
   
   # detecting outliers
   # outliers with a prior.df value < 1
@@ -108,7 +111,7 @@ func_edger_step1 <- function(counts_mat = counts_keep2,
                design = design) )
 }
 
-
+# STEP 2
 # fit model and perform test, extract statistics
 func_edger_step2 <- function(dge_list = y,
                              design_mat = design,
@@ -127,6 +130,7 @@ func_edger_step2 <- function(dge_list = y,
   qlf$table$FDR <- p.adjust(qlf$table$PValue, method = "BH")
   qlfSig <- qlf$table[ which(qlf$table$FDR < FDR_threshold ), ]
   
+  # get genes that are significantly UP or DOWN
   qlfSigUp <- qlfSig[ which(qlfSig$logFC > 1 ), ]
   qlfSigDown <- qlfSig[ which(qlfSig$logFC < (-1) ), ]
   
