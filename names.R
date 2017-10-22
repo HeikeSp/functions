@@ -11,6 +11,11 @@ names_treatment_sample_time_2 <- c("control \n early/before", "drought stress \n
                                  "control \n late/before", "drought stress \n late/before", 
                                  "control \n late/after", "drought stress \n late/after")
 
+names_sample_time_cultivar <- c("early/before \n Milva", "early/before \n Alegria", "early/before \n Desiree", "early/before \n Saturna",
+                                "early/after \n Milva", "early/after \n Alegria", "early/after \n Desiree", "early/after \n Saturna",
+                                "late/before \n Milva", "late/before \n Alegria", "late/before \n Desiree", "late/before \n Saturna",
+                                "late/after \n Milva", "late/after \n Alegria", "late/after \n Desiree", "late/after \n Saturna")
+
 names_treatment_sample_time_jki <- c("control \n 18.05.2011", 
                                  "drought stress \n 18.05.2011", 
                                  "control \n 25.05.2011", 
