@@ -9,12 +9,14 @@
 
 
 # boxplot with 1 factor
-func_boxplot_1fac <- function(normalized_values, trial_factors, factor, res_anova_adj, cols, analyte_names = analytes_sel_exp_sort$Name){
+func_boxplot_1fac <- function(normalized_values, trial_factors, factor, res_anova_adj, cols, 
+                              analyte_names = analytes_sel_exp_sort$Name,
+                              ylab_text = "log10-normalized relative amount"){
   for (i in 1:ncol(normalized_values)){
     if(ncol(normalized_values)==109)
       {analytes_sel_exp_sort_changed <- analyte_names[-65] # entferne analyte in spalte 65
       boxplot(normalized_values[,i] ~ trial_factors[,factor], 
-              ylab = "log10-normalized relative amount",
+              ylab = ylab_text,
               main = analytes_sel_exp_sort_changed[i], 
               col = cols,
               sub = paste("ANOVA p-value:",res_anova_adj[i,factor]))
@@ -22,14 +24,14 @@ func_boxplot_1fac <- function(normalized_values, trial_factors, factor, res_anov
     else
       {if (length(levels(trial_factors[,factor])) > 8) # wenn factor sehr viele levels hat, dann drehe Beschriftung um 90 Grad --> las = 2
         {boxplot(normalized_values[,i] ~ trial_factors[,factor], 
-              ylab = "log10-normalized relative amount",
+              ylab = ylab_text,
               main = analyte_names[i], 
               col = cols,
               las = 2,
               sub = paste("ANOVA p-value:", res_anova_adj[i,factor]))}
         else
         {boxplot(normalized_values[,i] ~ trial_factors[,factor], 
-                 ylab = "log10-normalized relative amount",
+                 ylab = ylab_text,
                  main = analyte_names[i], 
                  col = cols,
                  sub = paste("ANOVA p-value:", res_anova_adj[i,factor]))}
@@ -42,13 +44,14 @@ func_boxplot_1fac <- function(normalized_values, trial_factors, factor, res_anov
 
 # boxplot with 2 factors
 func_boxplot_2fac <- function(normalized_values, trial_factors, factor1, factor2, res_anova_adj, 
-                              cols, names_factors, analyte_names = analytes_sel_exp_sort$Name, las_value = 2){
+                              cols, names_factors, analyte_names = analytes_sel_exp_sort$Name, las_value = 2,
+                              ylab_text = "log10-normalized relative amount"){
   
   for (i in 1:ncol(normalized_values)){
     if(ncol(normalized_values)==109){
       analytes_6sel_exp_sort_changed <- analyte_names[-65]
       boxplot(normalized_values[,i] ~ trial_factors[,factor1] * trial_factors[,factor2], 
-              ylab="log10-normalized relative amount", las=las_value, names=names_factors,
+              ylab = ylab_text, las=las_value, names=names_factors,
               main = analytes_6sel_exp_sort_changed[i], col=cols)
     }
        
@@ -58,7 +61,7 @@ func_boxplot_2fac <- function(normalized_values, trial_factors, factor1, factor2
     
     else{
       boxplot(normalized_values[,i] ~ trial_factors[,factor1] * trial_factors[,factor2], 
-              ylab="log10-normalized relative amount", las=las_value, names=names_factors,
+              ylab = ylab_text, las=las_value, names=names_factors,
               main = analyte_names[i], col=cols)
     }
       mtext(paste(factor1, "p-value:",res_anova_adj[i,factor1], 
@@ -75,11 +78,12 @@ func_boxplot_2fac <- function(normalized_values, trial_factors, factor1, factor2
 func_boxplot_2fac_single <- function(normalized_values, trial_factors, factor1, factor2, 
                               cols, names_factors, analytes=analytes_7sel_exp_sort, analyte_name, main_text, x.axis="s",
                               ymin = min(normalized_values[,analyte_row], na.rm=T), 
-                              ymax = max(normalized_values[,analyte_row], na.rm=T),las_value=2)
+                              ymax = max(normalized_values[,analyte_row], na.rm=T),
+                              las_value = 2, ylab_text = "log10-normalized relative amount")
   {
   analyte_row <- which(analytes$Name == analyte_name)
   boxplot(normalized_values[,analyte_row] ~ trial_factors[,factor1] * trial_factors[,factor2], 
-          ylab="log10-normalized relative amount", las=las_value, names=names_factors, xaxt=x.axis,
+          ylab = ylab_text, las=las_value, names=names_factors, xaxt=x.axis,
           main = main_text, col=cols, cex.lab=1.5, cex.axis=1.2, cex.main=1.7,
           ylim = c(ymin, ymax))
 
