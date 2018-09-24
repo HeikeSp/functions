@@ -36,3 +36,42 @@ func_calc_loocv <- function(field_data){
   
   return(error_cv)
 }
+
+
+
+
+func_calc_loocv_caret <- function(field_data = field4, 
+                                  method_val = "glmnet", 
+                                  eGrid_val = eGrid){
+  error_cv <- c()
+  pred_cv <- c()
+  
+  for(acc in accessions_known){
+    
+    accessions_training_cv <- accessions_known[-which(acc==accessions_known)]
+    accessions_testing_cv <- accessions_known[which(acc==accessions_known)]
+    
+    idx_train_cv <- which(field_data$accession %in% accessions_training_cv)
+    idx_test_cv <- which(field_data$accession %in% accessions_testing_cv)
+    
+    x_train_cv <- field_data[idx_train_cv, model_colnames[6:15]]
+    x_test_cv <- field_data[idx_test_cv, model_colnames[6:15]]
+    y_train_cv <- field_data[idx_train_cv, "LT50ACC"]
+    y_test_cv <- field_data[idx_test_cv, "LT50ACC"]
+    
+    fit_caret_cv <- train(x = x_train_cv, 
+                          y = y_train_cv,
+                          method = method_val,
+                          tuneGrid = eGrid_val,
+                          trControl = Control)
+    
+    pred_cv <- c(pred_cv, 
+                 predict(fit_caret_cv, newdata = x_test_cv))
+
+    
+  }
+  
+  names(pred_cv) <- field_data$accession[which(field_data$accession %in% accessions_known)]
+  
+  return(pred_cv)
+}
